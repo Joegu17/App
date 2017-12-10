@@ -3,15 +3,19 @@ var higher = document.getElementById('higher'),
 
 higher.addEventListener('touchstart', higherStart);
 higher.addEventListener('touchend', higherEnd);
-//lower.addEventListener('touchstart', );
-//lower.addEventListener('touchend', );
+lower.addEventListener('touchstart', lowerStart);
+lower.addEventListener('touchend', lowerEnd);
 
-function higherStart(e) {
-    alert('hefh');
-    $('#higher_pressed').css({display: inherit});
+function higherStart() {
+    $('#higher_pressed').css({display: 'inherit'});
+}
+function higherEnd(e) {
+    $('#higher_pressed').css({display: 'none'});
 }
 
-function higherEnd(e) {
-    alert('hefh');
-    $('#higher_pressed').css({display: none});
+function lowerStart() {
+    $('#lower_pressed').css({display: 'inherit'});
+}
+function lowerEnd(e) {
+    $('#lower_pressed').css({display: 'none'});
 }
