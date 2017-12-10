@@ -57,8 +57,8 @@
 
 #higher {
     position: fixed;
-    top: 73%;
-    height: 5%;
+    top: 72.25%;
+    height: 6%;
     width: 100%;
     background-image: url(../images/button.svg);
     background-position: center;
@@ -68,8 +68,8 @@
 
 #lower {
     position: fixed;
-    top: 79%;
-    height: 5%;
+    top: 79.25%;
+    height: 6%;
     width: 100%;
     background-image: url(../images/button.svg);
     background-position: center;
@@ -120,12 +120,12 @@
 }
 #text9 {
     position: fixed;
-    top: 73.5%;
+    top: 73.25%;
     width: 100%;
 }
 #text10 {
     position: fixed;
-    top: 79.5%;
+    top: 80.25%;
     width: 100%;
 }
 
