@@ -15,8 +15,11 @@
    viewBox="0 0 53.445832 13.758334"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   sodipodi:docname="button.svg">
+   sodipodi:docname="button.svg"
+   inkscape:export-filename="C:\Users\Joel\Documents\Joel\Html\More or Less\0.01\images\button.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
   <defs
      id="defs2">
     <linearGradient
@@ -36,8 +39,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="4"
-     inkscape:cx="61.834419"
-     inkscape:cy="34.382324"
+     inkscape:cx="100.62371"
+     inkscape:cy="40.980973"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -71,7 +74,7 @@
      id="layer1"
      transform="translate(0,-283.24165)">
     <rect
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.52916664;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#000000;fill-opacity:0.00392157;stroke:#ffffff;stroke-width:0.52916664;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
        id="rect815"
        width="52.916668"
        height="13.229161"
