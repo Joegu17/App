@@ -1,0 +1,17 @@
+<widget id="ch.eaglegames.moreorless" version="1.0.0">
+
+<name>More or Less</name>
+
+<description></description>
+
+<author email="joel@familiehari.ch">Joel Hari</author>
+
+<content src="index.html"/>
+
+<preference name="Fullscreen" value="true"/>
+
+<preference name="DisallowOverscroll" value="true"/>
+
+<preference name="Orientation" value="portrait"/>
+
+</widget>
