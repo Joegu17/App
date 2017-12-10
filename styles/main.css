@@ -57,7 +57,7 @@
 
 #higher {
     position: fixed;
-    top: 72%;
+    top: 73%;
     height: 5%;
     width: 100%;
     background-image: url(../images/button.svg);
@@ -68,7 +68,7 @@
 
 #lower {
     position: fixed;
-    top: 78%;
+    top: 79%;
     height: 5%;
     width: 100%;
     background-image: url(../images/button.svg);
@@ -79,12 +79,12 @@
 
 #text1 {
     position: fixed;
-    top: 12%;
+    top: 8%;
     width: 100%;
 }
 #text2 {
     position: fixed;
-    top: 18%;
+    top: 16%;
     width: 100%;
 }
 #text3 {
@@ -94,17 +94,17 @@
 }
 #text4 {
     position: fixed;
-    top: 34%;
+    top: 36%;
     width: 100%;
 }
 #text5 {
     position: fixed;
-    top: 62%;
+    top: 58%;
     width: 100%;
 }
 #text6 {
     position: fixed;
-    top: 68%;
+    top: 66%;
     width: 100%;
 }
 #text7 {
@@ -115,24 +115,24 @@
 }
 #text8 {
     position: fixed;
-    top: 84%;
+    top: 86%;
     width: 100%;
 }
 #text9 {
     position: fixed;
-    top: 73%;
+    top: 73.5%;
     width: 100%;
 }
 #text10 {
     position: fixed;
-    top: 79%;
+    top: 79.5%;
     width: 100%;
 }
 
 .font1 {
     text-align: center;
     font-family: Helvetica;
-    font-size: 5vh;
+    font-size: 7vh;
     font-weight: bold;
     font-style: italic;
     color: white;
@@ -142,7 +142,7 @@
 .font2 {
     text-align: center;
     font-family: Helvetica;
-    font-size: 3vh;
+    font-size: 5vh;
     font-weight: bold;
     font-style: italic;
     color: white;
@@ -152,7 +152,7 @@
 .font3 {
     text-align: center;
     font-family: Helvetica;
-    font-size: 2.5vh;
+    font-size: 3.5vh;
     font-weight: bold;
     font-style: italic;
     color: white;
