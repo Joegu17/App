@@ -65,7 +65,6 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-
 #lower {
     position: fixed;
     top: 79.75%;
@@ -75,6 +74,28 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+}
+#higher_pressed {
+    position: fixed;
+    top: 71.75%;
+    height: 6%;
+    width: 100%;
+    background-image: url(../images/button_pressed.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+#lower_pressed {
+    position: fixed;
+    top: 79.75%;
+    height: 6%;
+    width: 100%;
+    background-image: url(../images/button_pressed.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
 }
 
 #text1 {
