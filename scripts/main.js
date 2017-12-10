@@ -7,9 +7,11 @@ higher.addEventListener('touchend', higherEnd);
 //lower.addEventListener('touchend', );
 
 function higherStart(e) {
+    alert('hefh');
     $('#higher_pressed').css({display: inherit});
 }
 
 function higherEnd(e) {
+    alert('hefh');
     $('#higher_pressed').css({display: none});
 }
