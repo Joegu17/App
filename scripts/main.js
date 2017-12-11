@@ -314,10 +314,6 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['zw', 'Zimbabwe', 16529904, 386850],
 ]
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 var c1 = getRandomInt(0, data.length - 1),
     c2 = getRandomInt(0, data.length - 1),
     c3 = getRandomInt(0, data.length - 1);
