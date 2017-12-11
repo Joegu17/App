@@ -402,6 +402,7 @@ function correct() {
     $('#higher').css({display: 'none'});
     $('#lower').css({display: 'none'});
     $('#text7').html(data[c2][2].toLocaleString());
+    $('#text7').css({display: 'inherit'});
 }
 
 function wrong() {
