@@ -378,7 +378,9 @@ function higherStart() {
 function higherEnd(e) {
     $('#higher_pressed').css({display: 'none'});
     if (data[c1][2] <= data[c2][2]) {
-        goOn();
+        correct();
+    } else {
+        wrong();
     }
 }
 
@@ -388,15 +390,22 @@ function lowerStart() {
 function lowerEnd(e) {
     $('#lower_pressed').css({display: 'none'});
     if (data[c1][2] >= data[c2][2]) {
-        goOn();
+        correct();
+    } else {
+        wrong();
     }
 }
 
-function goOn() {
+function correct() {
     $('#text9').css({display: 'none'});
     $('#text10').css({display: 'none'});
     $('#higher').css({display: 'none'});
     $('#lower').css({display: 'none'});
+    $('#text7').html(data[c2][2].toLocaleString());
+}
+
+function wrong() {
+    
 }
 
 
