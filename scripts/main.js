@@ -428,9 +428,15 @@ function moveCountry() {
         $('#text1').html(data[c1][1]);
         $('#text1').fadeIn(500);
     });
+    $('#text2').fadeOut(500, function() {
+        $('#text2').fadeIn(500);
+    });
     $('#text3').fadeOut(500, function() {
         $('#text3').html(data[c1][2].toLocaleString());
         $('#text3').fadeIn(500);
+    });
+    $('#text4').fadeOut(500, function() {
+        $('#text4').fadeIn(500);
     });
     $('#text5').fadeOut(500, function() {
         $('#text5').html(data[c2][1]);
@@ -490,11 +496,11 @@ function getNewCountry() {
     $('#text3').html(data[c1][2].toLocaleString());
     $('#text5').html(data[c2][1]);*/
     
-    $('#text9').css({display: 'inherit'});
+    /*$('#text9').css({display: 'inherit'});
     $('#text10').css({display: 'inherit'});
     $('#higher').css({display: 'inherit'});
     $('#lower').css({display: 'inherit'});
-    $('#text7').css({display: 'none'});
+    $('#text7').css({display: 'none'});*/
 }
 
 function reset() {
