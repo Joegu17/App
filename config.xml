@@ -15,5 +15,3 @@
     <preference name="Orientation" value="portrait"/>
 
 </widget>
-
-<gap:plugin name="phonegap-admob" source="npm"/>
