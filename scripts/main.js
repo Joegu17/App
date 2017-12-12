@@ -337,6 +337,14 @@ var countActive = false,
     score;
 
 function start() {
+    switch (cat) {
+        case 2:
+            getScorePopu();
+            break;
+        case 3:
+            getScoreSize();
+            break;
+    }
     $('#mainMenu').fadeIn(250, function() {
         higher.addEventListener('touchstart', function(){$('#higher_pressed').css({display: 'inherit'});});
         higher.addEventListener('touchend', higherEnd);
@@ -595,10 +603,10 @@ function gameLoop(timestamp) {
                 countingPoints = data[c2][cat];
                 switch (cat) {
                     case 2:
-                        $('#text7').html(Math.floor(countingPoints.toLocaleString()));
+                        $('#text7').html(Math.floor(countingPoints).toLocaleString());
                         break;
                     case 3:
-                        $('#text7').html(Math.floor(countingPoints.toLocaleString()) + ' km&sup2;');
+                        $('#text7').html(Math.floor(countingPoints).toLocaleString() + ' km&sup2;');
                         break;
                 }
                 if (answer) {
@@ -609,10 +617,10 @@ function gameLoop(timestamp) {
             } else {
                 switch (cat) {
                     case 2:
-                        $('#text7').html(Math.floor(countingPoints.toLocaleString()));
+                        $('#text7').html(Math.floor(countingPoints).toLocaleString());
                         break;
                     case 3:
-                        $('#text7').html(Math.floor(countingPoints.toLocaleString()) + ' km&sup2;');
+                        $('#text7').html(Math.floor(countingPoints).toLocaleString() + ' km&sup2;');
                         break;
                 }
             }
@@ -668,11 +676,13 @@ function categoryEnd(e) {
 function populationEnd(e) {
     $('#button3_pressed').css({display: 'none'});
     cat = 2;
+    getScorePopu();
     toMenu();
 }
 function areaEnd(e) {
     $('#button4_pressed').css({display: 'none'});
     cat = 3;
+    getScoreSize();
     toMenu();
 }
 
