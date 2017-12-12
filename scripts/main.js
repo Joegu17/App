@@ -578,6 +578,7 @@ function reset() {
         $('#lower').css({display: 'inherit'});
         $('#text7').css({display: 'none'});
         $('#game').css({display: 'none'});
+        showInterstitialAd();
         $('#mainMenu').fadeIn(250);
     });
 }

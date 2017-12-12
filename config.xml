@@ -1,17 +1,19 @@
 <widget id="ch.eaglegames.moreorless" version="1.0.0">
 
-<name>More or Less</name>
+    <name>More or Less</name>
 
-<description></description>
+    <description></description>
 
-<author email="joel@familiehari.ch">Joel Hari</author>
+    <author email="joel@familiehari.ch">Joel Hari</author>
 
-<content src="index.html"/>
+    <content src="index.html"/>
 
-<preference name="Fullscreen" value="true"/>
+    <preference name="Fullscreen" value="true"/>
 
-<preference name="DisallowOverscroll" value="true"/>
+    <preference name="DisallowOverscroll" value="true"/>
 
-<preference name="Orientation" value="portrait"/>
+    <preference name="Orientation" value="portrait"/>
+
+    <gap:plugin name="phonegap-admob" source="npm"/>
 
 </widget>
