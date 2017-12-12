@@ -427,10 +427,10 @@ function correct() {
 }
 
 function moveCountry() {
-    $('#div1').css({'transition-duration': '1s'});
+    //$('#div1').css({'transition-duration': '1s'});
     $('#div2').css({'transition-duration': '1s'});
     $('#div3').css({'transition-duration': '1s'});
-    $('#div1').css('transform', 'translate3d(0px, -100%, 0px)');
+    //$('#div1').css('transform', 'translate3d(0px, -100%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, -100%, 0px)');
     $('#div3').css('transform', 'translate3d(0px, -100%, 0px)');
     window.setTimeout(getNewCountry, 1000);
