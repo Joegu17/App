@@ -475,11 +475,11 @@ function getNewCountry() {
 }
 
 function reset() {
-    $('#text9').css({display: 'none'});
-    $('#text10').css({display: 'none'});
-    $('#higher').css({display: 'none'});
-    $('#lower').css({display: 'none'});
-    $('#text7').css({display: 'inherit'});
+    $('#text9').css({display: 'inherit'});
+    $('#text10').css({display: 'inherit'});
+    $('#higher').css({display: 'inherit'});
+    $('#lower').css({display: 'inherit'});
+    $('#text7').css({display: 'none'});
     
     $('#game').css({display: 'none'});
     $('#mainMenu').css({display: 'inherit'});
