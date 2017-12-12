@@ -595,10 +595,10 @@ function gameLoop(timestamp) {
                 countingPoints = data[c2][cat];
                 switch (cat) {
                     case 2:
-                        $('#text7').html(countingPoints.toLocaleString());
+                        $('#text7').html(Math.floor(countingPoints.toLocaleString()));
                         break;
                     case 3:
-                        $('#text7').html(countingPoints.toLocaleString() + ' km&sup2;');
+                        $('#text7').html(Math.floor(countingPoints.toLocaleString()) + ' km&sup2;');
                         break;
                 }
                 if (answer) {
@@ -609,10 +609,10 @@ function gameLoop(timestamp) {
             } else {
                 switch (cat) {
                     case 2:
-                        $('#text7').html(countingPoints.toLocaleString());
+                        $('#text7').html(Math.floor(countingPoints.toLocaleString()));
                         break;
                     case 3:
-                        $('#text7').html(countingPoints.toLocaleString() + ' km&sup2;');
+                        $('#text7').html(Math.floor(countingPoints.toLocaleString()) + ' km&sup2;');
                         break;
                 }
             }
