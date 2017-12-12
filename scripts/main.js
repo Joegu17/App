@@ -446,6 +446,8 @@ function moveCountry() {
         $('#text6').fadeIn(500);
     });
     $('#text7').fadeOut(500, function() {
+        score++;
+        $('#text13').html('Score: '+score);
         $('#text9').css({display: 'inherit'});
         $('#text10').css({display: 'inherit'});
         $('#higher').css({display: 'inherit'});
@@ -494,19 +496,6 @@ function getNewCountry() {
     if (transform3 == 4) {
         transform3 = 1;
     }
-    
-    score++;
-    $('#text13').html('Score: '+score);
-    
-    /*$('#text1').html(data[c1][1]);
-    $('#text3').html(data[c1][2].toLocaleString());
-    $('#text5').html(data[c2][1]);*/
-    
-    /*$('#text9').css({display: 'inherit'});
-    $('#text10').css({display: 'inherit'});
-    $('#higher').css({display: 'inherit'});
-    $('#lower').css({display: 'inherit'});
-    $('#text7').css({display: 'none'});*/
 }
 
 function reset() {
@@ -527,8 +516,10 @@ function reset() {
     $('#text7').css({display: 'none'});
     $('#text14').html('Top Score: '+scorePopu);
     
-    $('#game').css({display: 'none'});
-    $('#mainMenu').css({display: 'inherit'});
+    $('#game').fadeOut(500, function() {
+        $('#game').css({display: 'none'});
+        $('#mainMenu').css({display: 'inherit'});
+    });
 }
 
 function gameLoop(timestamp) {
