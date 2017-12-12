@@ -376,7 +376,8 @@ var countActive = false,
     plusPoints,
     countingPoints,
     answer = false,
-    goingOn = false;
+    goingOn = false,
+    changingDiv = 1;
 
 var higher = document.getElementById('higher'),
     lower = document.getElementById('lower');
@@ -425,13 +426,48 @@ function correct() {
     countActive = true;
 }
 
-function changeCountry() {
+function moveCountry() {
     $('#div1').css({'transition-duration': '1s'});
     $('#div2').css({'transition-duration': '1s'});
     $('#div3').css({'transition-duration': '1s'});
-    $('#div1').css('transform', 'translate3d(50%, 0px, 0px)');
-    $('#div2').css('transform', 'translate3d(50%, 0px, 0px)');
-    $('#div3').css('transform', 'translate3d(50%, 0px, 0px)');
+    $('#div1').css('transform', 'translate3d(0px, -50%, 0px)');
+    $('#div2').css('transform', 'translate3d(0px, -50%, 0px)');
+    $('#div3').css('transform', 'translate3d(0px, -50%, 0px)');
+    window.setTimeout(getNewCountry, 1000);
+}
+
+function getNewCountry() {
+    c1 = c2;
+    c2 = c3;
+    c3 = getRandomInt(0, data.length - 1);
+    while (c3 == c2 || c3 == c1) {
+        c3 = getRandomInt(0, data.length - 1);
+    }
+    
+    var elem = document.getElementById("div"+changingDiv);
+    return elem.parentNode.removeChild(elem);
+    
+    var div = document.createElement("div");
+    div.id = "div"+changingDiv;
+    div.style.position = "fixed";
+    div.style.width = "100%";
+    div.style.height = "50%";
+    div.style.top = "100%";
+    div.style.left = "0px";
+    div.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
+    div.style.backgroundPosition = "center";
+    div.style.backgroundSize = "cover";
+    document.getElementById("background").appendChild(div);
+    
+    $('#text1').html(data[c1][1]);
+    $('#text3').html(data[c1][2].toLocaleString());
+    $('#text5').html(data[c2][1]);
+    
+    $('#text9').css({display: 'inherit'});
+    $('#text10').css({display: 'inherit'});
+    $('#higher').css({display: 'inherit'});
+    $('#lower').css({display: 'inherit'});
+    $('#text7').css({display: 'none'});
 }
 
 function gameLoop(timestamp) {
@@ -454,7 +490,7 @@ function gameLoop(timestamp) {
                 countingPoints = data[c2][2];
                 $('#text7').html(Math.floor(countingPoints).toLocaleString());
                 if (answer) {
-                    window.setTimeout(changeCountry, 1000);
+                    window.setTimeout(moveCountry, 1000);
                 } else {
                     return;
                 }
