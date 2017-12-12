@@ -315,7 +315,7 @@ var c1,
     c2,
     c3;
 
-var category = 2;     //category: 2 = Population; 3 = Size;
+var cat = 2;     //category: 2 = Population; 3 = Size;
 
 var maxFPS = 60,
     fpsw = 0,
@@ -360,7 +360,7 @@ function init() {
         while (c3 == c2 || c3 == c1) {
             c3 = getRandomInt(0, data.length - 1);
         }
-
+        
         var div1 = document.createElement("div");
         div1.id = "div1"
         div1.style.position = "fixed";
@@ -402,12 +402,12 @@ function init() {
         $('#div1').css({'transition-duration': '1s'});
         $('#div2').css({'transition-duration': '1s'});
         $('#div3').css({'transition-duration': '1s'});
-
+        
         $('#text1').html(data[c1][1]);
-        $('#text3').html(data[c1][category].toLocaleString());
+        $('#text3').html(data[c1][cat].toLocaleString());
         $('#text5').html(data[c2][1]);
         
-        switch (category) {
+        switch (cat) {
             case 2:
                 $('#text4').html('Population');
                 $('#text9').html('higher');
@@ -419,7 +419,7 @@ function init() {
                 $('#text10').html('smaller');
                 break;
         }
-
+        
         changingDiv = 1;
         transform1 = 1;
         transform2 = 2;
@@ -439,7 +439,7 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
-    plusPoints = data[c2][category]/60;
+    plusPoints = data[c2][cat]/60;
     countingPoints = 0;
     $('#text7').html(countingPoints.toLocaleString());
     countActive = true;
@@ -454,7 +454,7 @@ function moveCountry() {
     }
     $('#ontop').fadeOut(500, function() {
         $('#text1').html(data[c1][1]);
-        $('#text3').html(data[c1][category].toLocaleString());
+        $('#text3').html(data[c1][cat].toLocaleString());
         $('#text5').html(data[c2][1]);
         score++;
         $('#text13').html('Score: '+score);
@@ -547,9 +547,9 @@ function gameLoop(timestamp) {
         
         if (countActive) {
             countingPoints += plusPoints;
-            if (countingPoints >= data[c2][category]) {
+            if (countingPoints >= data[c2][cat]) {
                 countActive = false;
-                countingPoints = data[c2][category];
+                countingPoints = data[c2][cat];
                 $('#text7').html(Math.floor(countingPoints).toLocaleString());
                 if (answer) {
                     window.setTimeout(moveCountry, 1000);
@@ -582,7 +582,7 @@ var higher = document.getElementById('higher'),
 
 function higherEnd(e) {
     $('#higher_pressed').css({display: 'none'});
-    if (data[c1][category] <= data[c2][category]) {
+    if (data[c1][cat] <= data[c2][cat]) {
         answer = true;
     } else {
         answer = false;
@@ -591,7 +591,7 @@ function higherEnd(e) {
 }
 function lowerEnd(e) {
     $('#lower_pressed').css({display: 'none'});
-    if (data[c1][category] >= data[c2][category]) {
+    if (data[c1][cat] >= data[c2][cat]) {
         answer = true;
     } else {
         answer = false;
