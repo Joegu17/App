@@ -458,7 +458,14 @@ function correct() {
     
     plusPoints = data[c2][cat]/60;
     countingPoints = 0;
-    $('#text7').html(countingPoints.toLocaleString());
+    switch (cat) {
+        case 2:
+            $('#text7').html(countingPoints.toLocaleString());
+            break;
+        case 3:
+            $('#text7').html(countingPoints.toLocaleString() + ' km&sup2;');
+            break;
+    }
     countActive = true;
 }
 
@@ -586,14 +593,28 @@ function gameLoop(timestamp) {
             if (countingPoints >= data[c2][cat]) {
                 countActive = false;
                 countingPoints = data[c2][cat];
-                $('#text7').html(Math.floor(countingPoints).toLocaleString());
+                switch (cat) {
+                    case 2:
+                        $('#text7').html(countingPoints.toLocaleString());
+                        break;
+                    case 3:
+                        $('#text7').html(countingPoints.toLocaleString() + ' km&sup2;');
+                        break;
+                }
                 if (answer) {
                     window.setTimeout(moveCountry, 1000);
                 } else {
                     window.setTimeout(reset, 1000);
                 }
             } else {
-                $('#text7').html(Math.floor(countingPoints).toLocaleString());
+                switch (cat) {
+                    case 2:
+                        $('#text7').html(countingPoints.toLocaleString());
+                        break;
+                    case 3:
+                        $('#text7').html(countingPoints.toLocaleString() + ' km&sup2;');
+                        break;
+                }
             }
         }
         
