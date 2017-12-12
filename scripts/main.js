@@ -346,6 +346,10 @@ function start() {
         play.addEventListener('touchend', playEnd);
         category.addEventListener('touchstart', function(){$('#button2_pressed').css({display: 'inherit'});});
         category.addEventListener('touchend', categoryEnd);
+        population.addEventListener('touchstart', function(){$('#button3_pressed').css({display: 'inherit'});});
+        population.addEventListener('touchend', populationEnd);
+        area.addEventListener('touchstart', function(){$('#button4_pressed').css({display: 'inherit'});});
+        area.addEventListener('touchend', areaEnd);
     });
 }
 
@@ -404,17 +408,30 @@ function init() {
         $('#div3').css({'transition-duration': '1s'});
         
         $('#text1').html(data[c1][1]);
-        $('#text3').html(data[c1][cat].toLocaleString());
+        switch (cat) {
+            case 2:
+                $('#text3').html(data[c1][cat].toLocaleString());
+                break;
+            case 3:
+                $('#text3').html(data[c1][cat].toLocaleString() + ' km&sup2;');
+                break;
+        }
         $('#text5').html(data[c2][1]);
         
         switch (cat) {
             case 2:
-                $('#text4').html('Population');
-                $('#text9').html('higher');
-                $('#text10').html('lower');
+                $('#text2').html('has');
+                $('#text6').html('has');
+                $('#text4').html('Inhabitants');
+                $('#text8').html('Inhabitants');
+                $('#text9').html('more');
+                $('#text10').html('less');
                 break;
             case 3:
+                $('#text2').html('has a');
+                $('#text6').html('has a');
                 $('#text4').html('Area');
+                $('#text8').html('Area');
                 $('#text9').html('bigger');
                 $('#text10').html('smaller');
                 break;
@@ -454,7 +471,14 @@ function moveCountry() {
     }
     $('#ontop').fadeOut(500, function() {
         $('#text1').html(data[c1][1]);
-        $('#text3').html(data[c1][cat].toLocaleString());
+        switch (cat) {
+            case 2:
+                $('#text3').html(data[c1][cat].toLocaleString());
+                break;
+            case 3:
+                $('#text3').html(data[c1][cat].toLocaleString() + ' km&sup2;');
+                break;
+        }
         $('#text5').html(data[c2][1]);
         score++;
         $('#text13').html('Score: '+score);
@@ -532,6 +556,18 @@ function reset() {
     });
 }
 
+function toCategory() {
+    $('#mainMenu').fadeOut(250, function() {
+        $('#categoryMenu').fadeIn(250);
+    });
+}
+
+function toMenu() {
+    $('#categoryMenu').fadeOut(250, function() {
+        $('#mainMenu').fadeIn(250);
+    });
+}
+
 function gameLoop(timestamp) {
     
     if (timestamp < lastFrameTimeMs + (1000 / maxFPS)) {
@@ -578,7 +614,9 @@ function panic() {
 var higher = document.getElementById('higher'),
     lower = document.getElementById('lower'),
     play = document.getElementById('button1'),
-    category = document.getElementById('button2');
+    category = document.getElementById('button2'),
+    population = document.getElementById('button3'),
+    area = document.getElementById('button4');
 
 function higherEnd(e) {
     $('#higher_pressed').css({display: 'none'});
@@ -604,6 +642,17 @@ function playEnd(e) {
 }
 function categoryEnd(e) {
     $('#button2_pressed').css({display: 'none'});
+    toCategory();
+}
+function populationEnd(e) {
+    $('#button3_pressed').css({display: 'none'});
+    cat = 2;
+    toMenu();
+}
+function areaEnd(e) {
+    $('#button4_pressed').css({display: 'none'});
+    cat = 3;
+    toMenu();
 }
 
 window.requestAnimationFrame(gameLoop);

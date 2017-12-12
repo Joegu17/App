@@ -206,6 +206,75 @@ body {
     left: 1vh;
 }
 
+/*------------------------------------------------------------------------------*/
+
+#categroyMenu {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+#button3 {
+    position: fixed;
+    top: 30%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#button4 {
+    position: fixed;
+    top: 55%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#button3_pressed {
+    position: fixed;
+    top: 30%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button_pressed.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+#button4_pressed {
+    position: fixed;
+    top: 55%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button_pressed.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+#text15 {
+    position: fixed;
+    top: 31%;
+    width: 100%;
+}
+#text16 {
+    position: fixed;
+    top: 56%;
+    width: 100%;
+}
+#text17 {
+    position: fixed;
+    top: 1%;
+    left: 1vh;
+}
+
+/*------------------------------------------------------------------------------*/
 
 .font1 {
     text-align: center;
