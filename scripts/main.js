@@ -15,25 +15,34 @@ function errorCB(err) {
 
 function insertData() {
     db.transaction(function(tx) {
-       tx.executeSql('INSERT INTO Data(id, scorepopulation, scoresize) values(?,?,?)', [0,0,0]) 
+        tx.executeSql('INSERT INTO Data(id, scorepopulation, scoresize) values(?,?,?)', [0,0,0]) 
     });
 }
 
 function getScorePopu() {
     db.transaction(function(tx) {
-       tx.executeSql('SELECT scorepopulation FROM Data WHERE id = ?', [0], function(tx, results) {
-    alert('dfe');
-           var score = results.rows.item(0);
-           alert(score);
-       });
+        tx.executeSql('SELECT scorepopulation FROM Data WHERE id = ?', [0], function(tx, results) {
+            var score = results.rows.item(0);
+            alert(score.scorepopulation);
+        });
     });
 }
 function getScoreSize() {
     db.transaction(function(tx) {
-       tx.executeSql('SELECT scoresize FROM Data WHERE id = ?', [0], function(tx, results) {
-           var score = results.rows.item(0);
-           alert(score.scoresize);
-       });
+        tx.executeSql('SELECT scoresize FROM Data WHERE id = ?', [0], function(tx, results) {
+            var score = results.rows.item(0);
+            alert(score.scoresize);
+        });
+    });
+}
+function setScorePopu(scorePopu) {
+    db.transaction(function(tx) {
+        tx.executeSql('UPDATE Data SET scorepopulation = '+scorePopu+' WHERE id = 0');
+    });
+}
+function setScoreSize(scoreSize) {
+    db.transaction(function(tx) {
+        tx.executeSql('UPDATE Data SET scoresize = '+scoreSize+' WHERE id = 0');
     });
 }
 
@@ -43,6 +52,8 @@ function handleError(err) {
 
 initDB();
 insertData();
+setScorePopu(4);
+setScoreSize(5);
 getScorePopu();
 getScoreSize();
 
