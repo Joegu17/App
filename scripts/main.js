@@ -334,7 +334,8 @@ var countActive = false,
     changingDiv = 1,
     transform1 = 1,
     transform2 = 2,
-    transform3 = 3;
+    transform3 = 3,
+    score = 0;
 
 function init() {
     c1 = getRandomInt(0, data.length - 1);
@@ -462,6 +463,9 @@ function getNewCountry() {
     if (transform3 == 4) {
         transform3 = 1;
     }
+    
+    score++;
+    $('#text13').html('Score: '+score);
     
     $('#text1').html(data[c1][1]);
     $('#text3').html(data[c1][2].toLocaleString());
