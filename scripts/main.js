@@ -24,7 +24,6 @@ function getScorePopu() {
         tx.executeSql('SELECT scorepopulation FROM Data WHERE id = ?', [0], function(tx, results) {
             var score1 = results.rows.item(0);
             scorePopu = score1.scorepopulation;
-            alert(scorePopu);
             $('#text14').html('Top Score: '+scorePopu);
         });
     });
@@ -34,7 +33,6 @@ function getScoreSize() {
         tx.executeSql('SELECT scoresize FROM Data WHERE id = ?', [0], function(tx, results) {
             var score1 = results.rows.item(0);
             scoreSize = score1.scoresize;
-            alert(scoreSize);
             $('#text14').html('Top Score: '+scoreSize);
         });
     });
