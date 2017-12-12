@@ -335,7 +335,7 @@ var countActive = false,
     transform1 = 1,
     transform2 = 2,
     transform3 = 3,
-    score = 0;
+    score;
 
 function init() {
     c1 = getRandomInt(0, data.length - 1);
@@ -398,6 +398,7 @@ function init() {
     transform1 = 1;
     transform2 = 2;
     transform3 = 3;
+    score = 0;
     
     $('#mainMenu').css({display: 'none'});
     $('#game').css({display: 'inherit'});
