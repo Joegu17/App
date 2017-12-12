@@ -590,6 +590,14 @@ function toCategory() {
 
 function toMenu() {
     $('#categoryMenu').fadeOut(250, function() {
+        switch (cat) {
+            case 2:
+                getScorePopu();
+                break;
+            case 3:
+                getScoreSize();
+                break;
+        }
         $('#mainMenu').fadeIn(250);
     });
 }
@@ -687,13 +695,11 @@ function categoryEnd(e) {
 function populationEnd(e) {
     $('#button3_pressed').css({display: 'none'});
     cat = 2;
-    getScorePopu();
     toMenu();
 }
 function areaEnd(e) {
     $('#button4_pressed').css({display: 'none'});
     cat = 3;
-    getScoreSize();
     toMenu();
 }
 
