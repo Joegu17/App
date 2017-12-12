@@ -577,7 +577,6 @@ function reset() {
         $('#higher').css({display: 'inherit'});
         $('#lower').css({display: 'inherit'});
         $('#text7').css({display: 'none'});
-        $('#text14').html('Top Score: '+scorePopu);
         $('#game').css({display: 'none'});
         $('#mainMenu').fadeIn(250);
     });
