@@ -446,6 +446,7 @@ function getNewCountry() {
     
     var elem = document.getElementById("div"+changingDiv);
     return elem.parentNode.removeChild(elem);
+    alert('hefe');
     
     var div = document.createElement("div");
     div.id = "div"+changingDiv;
@@ -518,7 +519,7 @@ function panic() {
     delta = 0;
 }
 
-
+alert('hefe');
 window.requestAnimationFrame(gameLoop);
 
 
