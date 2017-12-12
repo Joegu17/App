@@ -54,8 +54,6 @@ function handleError(err) {
 
 initDB();
 insertData();
-getScorePopu();
-getScoreSize();
 
 //[Code, Name, Population, Size]
 var data = [                        //http://www.worldometers.info/world-population/population-by-country/
@@ -317,6 +315,8 @@ var c1,
     c2,
     c3;
 
+var category = 2;     //category: 2 = Population; 3 = Size;
+
 var maxFPS = 60,
     fpsw = 0,
     lastFrameTimeMs = 0,
@@ -404,8 +404,21 @@ function init() {
         $('#div3').css({'transition-duration': '1s'});
 
         $('#text1').html(data[c1][1]);
-        $('#text3').html(data[c1][2].toLocaleString());
+        $('#text3').html(data[c1][category].toLocaleString());
         $('#text5').html(data[c2][1]);
+        
+        switch (category) {
+            case 2:
+                $('#text4').html('Population');
+                $('#text9').html('higher');
+                $('#text10').html('lower');
+                break;
+            case 3:
+                $('#text4').html('Area');
+                $('#text9').html('bigger');
+                $('#text10').html('smaller');
+                break;
+        }
 
         changingDiv = 1;
         transform1 = 1;
@@ -415,7 +428,6 @@ function init() {
         $('#text13').html('Score: '+score);
 
         $('#mainMenu').css({display: 'none'});
-        //$('#game').css({display: 'inherit'});
         $('#game').fadeIn(250);
     });
 }
@@ -427,7 +439,7 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
-    plusPoints = data[c2][2]/60;
+    plusPoints = data[c2][category]/60;
     countingPoints = 0;
     $('#text7').html(countingPoints.toLocaleString());
     countActive = true;
@@ -442,7 +454,7 @@ function moveCountry() {
     }
     $('#ontop').fadeOut(500, function() {
         $('#text1').html(data[c1][1]);
-        $('#text3').html(data[c1][2].toLocaleString());
+        $('#text3').html(data[c1][category].toLocaleString());
         $('#text5').html(data[c2][1]);
         score++;
         $('#text13').html('Score: '+score);
@@ -454,39 +466,7 @@ function moveCountry() {
         $('#ontop').fadeIn(500);
     });
     $('#text7').fadeOut(500);
-    /*$('#text1').fadeOut(500, function() {
-        $('#text1').html(data[c1][1]);
-        $('#text1').fadeIn(500);
-    });
-    $('#text2').fadeOut(500, function() {
-        $('#text2').fadeIn(500);
-    });
-    $('#text3').fadeOut(500, function() {
-        $('#text3').html(data[c1][2].toLocaleString());
-        $('#text3').fadeIn(500);
-    });
-    $('#text4').fadeOut(500, function() {
-        $('#text4').fadeIn(500);
-    });
-    $('#text5').fadeOut(500, function() {
-        $('#text5').html(data[c2][1]);
-        $('#text5').fadeIn(500);
-    });
-    $('#text6').fadeOut(500, function() {
-        $('#text6').fadeIn(500);
-    });
-    $('#text7').fadeOut(500, function() {
-        score++;
-        $('#text13').html('Score: '+score);
-        $('#text9').css({display: 'inherit'});
-        $('#text10').css({display: 'inherit'});
-        $('#higher').css({display: 'inherit'});
-        $('#lower').css({display: 'inherit'});
-        $('#text7').css({display: 'none'});
-    });
-    $('#text8').fadeOut(500, function() {
-        $('#text8').fadeIn(500);
-    });*/
+    
     $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
     $('#div3').css('transform', 'translate3d(0px, '+transform1*(-100)+'%, 0px)');
@@ -548,7 +528,6 @@ function reset() {
         $('#text7').css({display: 'none'});
         $('#text14').html('Top Score: '+scorePopu);
         $('#game').css({display: 'none'});
-        //$('#mainMenu').css({display: 'inherit'});
         $('#mainMenu').fadeIn(250);
     });
 }
@@ -568,9 +547,9 @@ function gameLoop(timestamp) {
         
         if (countActive) {
             countingPoints += plusPoints;
-            if (countingPoints >= data[c2][2]) {
+            if (countingPoints >= data[c2][category]) {
                 countActive = false;
-                countingPoints = data[c2][2];
+                countingPoints = data[c2][category];
                 $('#text7').html(Math.floor(countingPoints).toLocaleString());
                 if (answer) {
                     window.setTimeout(moveCountry, 1000);
@@ -603,7 +582,7 @@ var higher = document.getElementById('higher'),
 
 function higherEnd(e) {
     $('#higher_pressed').css({display: 'none'});
-    if (data[c1][2] <= data[c2][2]) {
+    if (data[c1][category] <= data[c2][category]) {
         answer = true;
     } else {
         answer = false;
@@ -612,7 +591,7 @@ function higherEnd(e) {
 }
 function lowerEnd(e) {
     $('#lower_pressed').css({display: 'none'});
-    if (data[c1][2] >= data[c2][2]) {
+    if (data[c1][category] >= data[c2][category]) {
         answer = true;
     } else {
         answer = false;
