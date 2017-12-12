@@ -503,12 +503,6 @@ function reset() {
         setScorePopu(score);
         getScorePopu();
     }
-    var elem1 = document.getElementById("div1");
-    elem1.parentNode.removeChild(elem1);
-    var elem2 = document.getElementById("div2");
-    elem2.parentNode.removeChild(elem2);
-    var elem3 = document.getElementById("div3");
-    elem3.parentNode.removeChild(elem3);
     $('#text9').css({display: 'inherit'});
     $('#text10').css({display: 'inherit'});
     $('#higher').css({display: 'inherit'});
@@ -517,6 +511,12 @@ function reset() {
     $('#text14').html('Top Score: '+scorePopu);
     
     $('#game').fadeOut(500, function() {
+        var elem1 = document.getElementById("div1");
+        elem1.parentNode.removeChild(elem1);
+        var elem2 = document.getElementById("div2");
+        elem2.parentNode.removeChild(elem2);
+        var elem3 = document.getElementById("div3");
+        elem3.parentNode.removeChild(elem3);
         $('#game').css({display: 'none'});
         $('#mainMenu').css({display: 'inherit'});
     });
