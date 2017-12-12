@@ -430,9 +430,9 @@ function moveCountry() {
     $('#div1').css({'transition-duration': '1s'});
     $('#div2').css({'transition-duration': '1s'});
     $('#div3').css({'transition-duration': '1s'});
-    $('#div1').css('transform', 'translate3d(0px, -50%, 0px)');
-    $('#div2').css('transform', 'translate3d(0px, -50%, 0px)');
-    $('#div3').css('transform', 'translate3d(0px, -50%, 0px)');
+    $('#div1').css('transform', 'translate3d(0px, -100%, 0px)');
+    $('#div2').css('transform', 'translate3d(0px, -100%, 0px)');
+    $('#div3').css('transform', 'translate3d(0px, -100%, 0px)');
     window.setTimeout(getNewCountry, 1000);
 }
 
@@ -458,6 +458,11 @@ function getNewCountry() {
     div.style.backgroundPosition = "center";
     div.style.backgroundSize = "cover";
     document.getElementById("background").appendChild(div);
+    
+    changingDiv++;
+    if (changingDiv == 4) {
+        changingDiv = 1;
+    }
     
     $('#text1').html(data[c1][1]);
     $('#text3').html(data[c1][2].toLocaleString());
