@@ -1,13 +1,13 @@
-/*var db;
+var scorePopu;
+var scoreSize;
+var db;
 function initDB() {
-    alert('hje');
     db = window.openDatabase('Database', 1.0, 'AppGame', 2097152);
     db.transaction(createTB, errorCB);
 }
 
 function createTB(tx) {
-    //tx.executeSql('CREATE TABLE IF NOT EXISTS Data(ID AUTOINCREMENT INTEGER PRIMARY KEY, NAME TEXT, POPULATION INTEGER, CAPITAL_CITY INTEGER, SIZE INTEGER, BORDER INTEGER)');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Data(id, name, population, capital, size, border)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS Data(id, scorepopulation, scoresize)');
 }
 function errorCB(err) {
     alert(err);
@@ -15,55 +15,43 @@ function errorCB(err) {
 
 function insertData() {
     db.transaction(function(tx) {
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [0, 'ch', 8000000, 300000, 40000, 10000], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [1, 'ad', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [2, 'ae', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [3, 'af', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [4, 'ag', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [5, 'ai', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [6, 'al', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [7, 'am', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [8, 'ao', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [9, 'aq', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [10, 'ar', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [11, 'as', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [12, 'at', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [13, 'au', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [14, 'aw', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [15, 'ax', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [16, 'az', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [17, 'ba', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [18, 'bb', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [19, 'bd', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [20, 'be', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [21, 'bf', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [22, 'bg', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [23, 'bh', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [24, 'bi', , , , ], showRecords, handleError);
-       tx.executeSql('INSERT INTO Data(id, name, population, capital, size, border) values(?,?,?,?,?,?)', [25, 'bj', , , , ], showRecords, handleError);
+       tx.executeSql('INSERT INTO Data(id, scorepopulation, scoresize) values(?,?,?)', [0,0,0]) 
     });
 }
-function showRecords() {
+
+function getScorePopu() {
     db.transaction(function(tx) {
-       tx.executeSql('SELECT name FROM Data WHERE id = ?', [0], function(tx, results) {
-           var name = results.rows.item(0);
-           alert(name.name);
+       tx.executeSql('SELECT scorepopulation FROM Data WHERE id = ?', [0], function(tx, results) {
+    alert('dfe');
+           var score = results.rows.item(0);
+           alert(score);
        });
     });
 }
+function getScoreSize() {
+    db.transaction(function(tx) {
+       tx.executeSql('SELECT scoresize FROM Data WHERE id = ?', [0], function(tx, results) {
+           var score = results.rows.item(0);
+           alert(score.scoresize);
+       });
+    });
+}
+
 function handleError(err) {
     alert(err);
 }
 
 initDB();
-insertData();*/
+insertData();
+getScorePopu();
+getScoreSize();
 
 //[Code, Name, Population, Size]
 var data = [                        //http://www.worldometers.info/world-population/population-by-country/
     ['ad', 'Andorra', 76965, 470],
-    ['ae', 'United Arab Emirates', 9400145, 83600],
+    ['ae', 'U.A.E.'/*'United Arab Emirates'*/, 9400145, 83600],
     ['af', 'Afghanistan', 35530081, 652860],
-    ['ag', 'Antigua and Barbuda', 102012, 440],
+    ['ag', 'Antigua & Barbuda', 102012, 440],
     ['ai', 'Anguilla', 14909, 90],
     ['al', 'Albania', 2930187, 27400],
     ['am', 'Armenia', 2930450, 28470],
@@ -75,7 +63,7 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['aw', 'Aruba', 105264, 180],
     //['ax', 'Âland', , , , , ],
     ['az', 'Azerbaijan', 9827589, 82658],
-    ['ba', 'Bosnia and Herzegovina', 3507017, 51000],
+    ['ba', 'Bosnia & Herzegovina', 3507017, 51000],
     ['bb', 'Barbados', 285719, 430],
     ['bd', 'Bangladesh', 164669751, 130170],
     ['be', 'Belgium', 11429336, 30280],
@@ -98,7 +86,7 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['bz', 'Belize', 374681, 22810],
     ['ca', 'Canada', 36624199, 9093510],
     //['cc', 'Cocos Islands', , , , , ],
-    ['cd', 'Democratic Republic of the Congo', 61339988, 2267050],
+    ['cd', 'D.R. Congo'/*'Democratic Republic of the Congo'*/, 61339988, 2267050],
     ['cf', 'Central African Republic', 4659080, 622980],
     ['cg', 'Congo', 5260750, 341500],
     ['ch', 'Switzerland', 8476005, 39516],
@@ -182,7 +170,7 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['kh', 'Cambodia', 16005373, 176520],
     ['ki', 'Kiribati', 116398, 810],
     ['km', 'Comoros', 813912, 1861],
-    ['kn', 'Saint Kitts and Nevis', 55345, 260],
+    ['kn', 'St. Kitts & Nevis', 55345, 260],
     ['kp', 'North Korea', 25490965, 120410],
     ['kr', 'South Korea', 50982212, 97230],
     ['kw', 'Kuwait', 4136528, 17820],
@@ -242,7 +230,7 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['ph', 'Philippines', 104918090, 298170],
     ['pk', 'Pakistan', 197015955, 770880],
     ['pl', 'Poland', 38170712, 306230],
-    ['pm', 'St. Pierre and Miquelon', 6320, 230],
+    ['pm', 'St. Pierre & Miquelon', 6320, 230],
     //['pn', 'Pitcairn', , , , , ],
     ['pr', 'Puerto Rico', 3663131, 8870],
     //['ps', 'Palestine', , , , , ],
@@ -271,12 +259,12 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['so', 'Somalia', 14742523, 627340],
     ['sr', 'Suriname', 563402, 156000],
     ['ss', 'South Sudan', 12575714, 610952],
-    ['st', 'Sao Tome and Principe', 204327, 960],
+    ['st', 'Sao Tome & Principe', 204327, 960],
     ['sv', 'El Salvador', 6377853, 20720],
     ['sx', 'Sint Maarten', 40120, 34],
     ['sy', 'Syria', 18269868, 183630],
     ['sz', 'Swaziland', 1367254, 17200],
-    ['tc', 'Turks and Caicos Islands', 35446, 950],
+    ['tc', 'Turks & Caicos Islands', 35446, 950],
     ['td', 'Chad', 14899994, 1259200],
     //['tf', 'French Southern Territories', , , , , ],
     ['tg', 'Togo', 7797694, 54390],
@@ -288,24 +276,24 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['tn', 'Tunisia', 11532127, 155360],
     ['to', 'Tonga', 108020, 720],
     ['tr', 'Turkey', 80745020, 769630],
-    ['tt', 'Trinidad and Tobago', 11532127, 155360],
+    ['tt', 'Trinidad & Tobago', 11532127, 155360],
     ['tv', 'Tuvalu', 11192, 30],
     ['tw', 'Taiwan', 23626456, 35410],
     ['tz', 'Tanzania', 57310019, 885800],
     ['ua', 'Ukraine', 44222947, 579320],
     ['ug', 'Uganda', 42862958, 199810],
     //['um', 'US Minor Outlying Islands', , , , , ],
-    ['us', 'United States of America', 324459463, 9147420],
+    ['us', 'U.S.A.'/*'United States of America'*/, 324459463, 9147420],
     ['uy', 'Uruguay', 3456750, 175020],
     ['uz', 'Uzbekistan', 31910641, 425400],
     ['va', 'Vatican City State', 792, 1],
-    ['vc', 'Saint Vincent and the Grenadines', 109897, 390],
+    ['vc', 'St. Vincent & the Grenadines', 109897, 390],
     ['ve', 'Venezuela', 31977065, 882050],
     ['vg', 'British Virgin Islands', 31196, 150],
     ['vi', 'U.S. Virgin Islands', 104901, 350],
     ['vn', 'Viet Nam', 95540800, 310070],
     ['vu', 'Vanuatu', 276244, 12190],
-    ['wf', 'Wallis and Futuna Islands', 11773, 140],
+    ['wf', 'Wallis & Futuna Islands', 11773, 140],
     ['ws', 'Samoa', 196440, 2830],
     ['ye', 'Yemen', 28250420, 527970],
     ['yt', 'Mayotte', 253045, 375],
