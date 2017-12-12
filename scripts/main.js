@@ -54,8 +54,6 @@ function handleError(err) {
 
 initDB();
 insertData();
-getScorePopu();
-getScoreSize();
 
 //[Code, Name, Population, Size]
 var data = [                        //http://www.worldometers.info/world-population/population-by-country/
@@ -337,6 +335,8 @@ var countActive = false,
     score;
 
 function start() {
+    getScorePopu();
+    getScoreSize();
     $('#mainMenu').fadeIn(250, function() {
         higher.addEventListener('touchstart', function(){$('#higher_pressed').css({display: 'inherit'});});
         higher.addEventListener('touchend', higherEnd);
