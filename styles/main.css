@@ -17,9 +17,9 @@
 
 }
 
-/*body {
-    background-color: black;
-}*/
+body {
+    background-color: bisque;
+}
 
 
 #game {
@@ -140,14 +140,14 @@
 
 /*------------------------------------------------------------------------------*/
 
-#mainMenu {
+/*#mainMenu {
     position: absolute;
     top: 0px;
     left: 0px;
     height: 100%;
     width: 100%;
     background-color: beige;
-}
+}*/
 #button1 {
     position: fixed;
     top: 30%;
