@@ -451,6 +451,7 @@ function moveCountry() {
         $('#higher').css({display: 'inherit'});
         $('#lower').css({display: 'inherit'});
         $('#text7').css({display: 'none'});
+        $('#ontop').fadeIn(500);
     });
     $('#text7').fadeOut(500);
     /*$('#text1').fadeOut(500, function() {
