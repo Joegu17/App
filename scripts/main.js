@@ -325,7 +325,7 @@ while (c3 == c2 || c3 == c1) {
 }
 
 var div1 = document.createElement("div");
-div1.setAttribute("id", "div1");
+div1.id = "div1"
 div1.style.position = "fixed";
 div1.style.width = "100%";
 div1.style.height = "50%";
@@ -337,7 +337,7 @@ div1.style.backgroundSize = "cover";
 document.getElementById("background").appendChild(div1);
 
 var div2 = document.createElement("div");
-div2.setAttribute("id", "div1");
+div2.id = "div2"
 div2.style.position = "fixed";
 div2.style.width = "100%";
 div2.style.height = "50%";
@@ -349,7 +349,7 @@ div2.style.backgroundSize = "cover";
 document.getElementById("background").appendChild(div2);
 
 var div3 = document.createElement("div");
-div3.setAttribute("id", "div1");
+div3.id = "div3"
 div3.style.position = "fixed";
 div3.style.width = "100%";
 div3.style.height = "50%";
@@ -374,7 +374,9 @@ var maxFPS = 60,
 
 var countActive = false,
     plusPoints,
-    countingPoints;
+    countingPoints,
+    answer = false,
+    goingOn = false;
 
 var higher = document.getElementById('higher'),
     lower = document.getElementById('lower');
@@ -390,10 +392,11 @@ function higherStart() {
 function higherEnd(e) {
     $('#higher_pressed').css({display: 'none'});
     if (data[c1][2] <= data[c2][2]) {
-        correct();
+        answer = true;
     } else {
-        wrong();
+        answer = false;
     }
+    correct();
 }
 
 function lowerStart() {
@@ -402,10 +405,11 @@ function lowerStart() {
 function lowerEnd(e) {
     $('#lower_pressed').css({display: 'none'});
     if (data[c1][2] >= data[c2][2]) {
-        correct();
+        answer = true;
     } else {
-        wrong();
+        answer = false;
     }
+    correct();
 }
 
 function correct() {
@@ -419,12 +423,15 @@ function correct() {
     countingPoints = 0;
     $('#text7').html(countingPoints.toLocaleString());
     countActive = true;
-    
-    
 }
 
-function wrong() {
-    
+function changeCountry() {
+    $('#div1').css({'transition-duration': '1s'});
+    $('#div2').css({'transition-duration': '1s'});
+    $('#div3').css({'transition-duration': '1s'});
+    $('#div1').css('transform', 'translate3d(50%, 0px, 0px)');
+    $('#div2').css('transform', 'translate3d(50%, 0px, 0px)');
+    $('#div3').css('transform', 'translate3d(50%, 0px, 0px)');
 }
 
 function gameLoop(timestamp) {
@@ -439,16 +446,23 @@ function gameLoop(timestamp) {
     
     var numUpdatesSteps = 0;
     while (delta >= timestep) {
+        
         if (countActive) {
             countingPoints += plusPoints;
             if (countingPoints >= data[c2][2]) {
                 countActive = false;
                 countingPoints = data[c2][2];
                 $('#text7').html(Math.floor(countingPoints).toLocaleString());
+                if (answer) {
+                    window.setTimeout(changeCountry, 1000);
+                } else {
+                    return;
+                }
             } else {
                 $('#text7').html(Math.floor(countingPoints).toLocaleString());
             }
         }
+        
         delta -= timestep;
         if (++numUpdatesSteps >= 240) {
             panic();
@@ -457,6 +471,10 @@ function gameLoop(timestamp) {
     }
     
     window.requestAnimationFrame(gameLoop);
+}
+
+function panic() {
+    delta = 0;
 }
 
 
