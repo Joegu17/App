@@ -25,6 +25,7 @@ function getScorePopu() {
             var score1 = results.rows.item(0);
             scorePopu = score1.scorepopulation;
             $('#text14').html('Top Score: '+scorePopu);
+            $('#text17').html('Top Score: '+scorePopu);
         });
     });
 }
@@ -34,6 +35,7 @@ function getScoreSize() {
             var score1 = results.rows.item(0);
             scoreSize = score1.scoresize;
             $('#text14').html('Top Score: '+scoreSize);
+            $('#text17').html('Top Score: '+scoreSize);
         });
     });
 }
