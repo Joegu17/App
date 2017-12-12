@@ -54,6 +54,8 @@ function handleError(err) {
 
 initDB();
 insertData();
+getScorePopu();
+getScoreSize();
 
 //[Code, Name, Population, Size]
 var data = [                        //http://www.worldometers.info/world-population/population-by-country/
@@ -335,8 +337,6 @@ var countActive = false,
     score;
 
 function start() {
-    getScorePopu();
-    getScoreSize();
     $('#mainMenu').fadeIn(250, function() {
         higher.addEventListener('touchstart', function(){$('#higher_pressed').css({display: 'inherit'});});
         higher.addEventListener('touchend', higherEnd);
@@ -440,7 +440,20 @@ function moveCountry() {
     while (c3 == c2 || c3 == c1) {
         c3 = getRandomInt(0, data.length - 1);
     }
-    $('#text1').fadeOut(500, function() {
+    $('#ontop').fadeOut(500, function() {
+        $('#text1').html(data[c1][1]);
+        $('#text3').html(data[c1][2].toLocaleString());
+        $('#text5').html(data[c2][1]);
+        score++;
+        $('#text13').html('Score: '+score);
+        $('#text9').css({display: 'inherit'});
+        $('#text10').css({display: 'inherit'});
+        $('#higher').css({display: 'inherit'});
+        $('#lower').css({display: 'inherit'});
+        $('#text7').css({display: 'none'});
+    });
+    $('#text7').fadeOut(500);
+    /*$('#text1').fadeOut(500, function() {
         $('#text1').html(data[c1][1]);
         $('#text1').fadeIn(500);
     });
@@ -472,7 +485,7 @@ function moveCountry() {
     });
     $('#text8').fadeOut(500, function() {
         $('#text8').fadeIn(500);
-    });
+    });*/
     $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
     $('#div3').css('transform', 'translate3d(0px, '+transform1*(-100)+'%, 0px)');
