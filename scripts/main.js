@@ -402,7 +402,7 @@ function init() {
         $('#text13').html('Score: '+score);
 
         $('#mainMenu').css({display: 'none'});
-        $('#game').css({display: 'inherit'});
+        //$('#game').css({display: 'inherit'});
         $('#game').fadeIn(1000);
     });
 }
@@ -521,7 +521,7 @@ function reset() {
         $('#text7').css({display: 'none'});
         $('#text14').html('Top Score: '+scorePopu);
         $('#game').css({display: 'none'});
-        $('#mainMenu').css({display: 'inherit'});
+        //$('#mainMenu').css({display: 'inherit'});
         $('#mainMenu').fadeIn(1000);
     });
 }
