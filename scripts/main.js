@@ -437,12 +437,14 @@ function moveCountry() {
 }
 
 function getNewCountry() {
+    alert('hesdasafe');
     c1 = c2;
     c2 = c3;
     c3 = getRandomInt(0, data.length - 1);
     while (c3 == c2 || c3 == c1) {
         c3 = getRandomInt(0, data.length - 1);
     }
+    alert('heddwwdwdwwdfe');
     
     var elem = document.getElementById("div"+changingDiv);
     return elem.parentNode.removeChild(elem);
@@ -519,7 +521,6 @@ function panic() {
     delta = 0;
 }
 
-alert('hefe');
 window.requestAnimationFrame(gameLoop);
 
 
