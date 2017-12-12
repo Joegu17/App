@@ -457,12 +457,12 @@ function gameLoop(timestamp) {
             break;
         }
     }
+    
     window.requestAnimationFrame(gameLoop);
 }
 
 
-
-
+window.requestAnimationFrame(gameLoop);
 
 
 
