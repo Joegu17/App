@@ -415,7 +415,7 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
-    plusPoints = data[c2][2]/60;
+    plusPoints = data[c2][2]/1000;
     countingPoints = 0;
     $('#text7').html(countingPoints.toLocaleString());
     countActive = true;
