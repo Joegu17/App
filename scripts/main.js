@@ -334,7 +334,7 @@ div1.style.left = "0px";
 div1.style.backgroundImage = "url('images/4x3/"+data[c1][0]+".svg')";
 div1.style.backgroundPosition = "center";
 div1.style.backgroundSize = "cover";
-div1.style.["transition-duration"] = "1s";
+div1.style["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div1);
 
 var div2 = document.createElement("div");
@@ -347,7 +347,7 @@ div2.style.left = "0px";
 div2.style.backgroundImage = "url('images/4x3/"+data[c2][0]+".svg')";
 div2.style.backgroundPosition = "center";
 div2.style.backgroundSize = "cover";
-div2.style.["transition-duration"] = "1s";
+div2.style["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div2);
 
 var div3 = document.createElement("div");
@@ -360,7 +360,7 @@ div3.style.left = "0px";
 div3.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
 div3.style.backgroundPosition = "center";
 div3.style.backgroundSize = "cover";
-div3.style.["transition-duration"] = "1s";
+div3.style["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div3);
 
 $('#text1').html(data[c1][1]);
