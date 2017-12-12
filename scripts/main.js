@@ -447,7 +447,7 @@ function getNewCountry() {
     alert('heddwwdwdwwdfe');
     
     var elem = document.getElementById("div"+changingDiv);
-    return elem.parentNode.removeChild(elem);
+    elem.parentNode.removeChild(elem);
     alert('hefe');
     
     var div = document.createElement("div");
