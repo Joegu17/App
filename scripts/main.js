@@ -436,6 +436,16 @@ function moveCountry() {
         $('#text5').html(data[c2][1]);
         $('#text5').fadeIn(500);
     });
+    $('#text7').fadeOut(500, function() {
+        $('#text9').css({display: 'inherit'});
+        $('#text10').css({display: 'inherit'});
+        $('#higher').css({display: 'inherit'});
+        $('#lower').css({display: 'inherit'});
+        $('#text9').fadeIn(500);
+        $('#text10').fadeIn(500);
+        $('#text7').css({display: 'none'});
+        $('#text7').fadeIn(500);
+    });
     $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
     $('#div3').css('transform', 'translate3d(0px, '+transform1*(-100)+'%, 0px)');
