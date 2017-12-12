@@ -1,4 +1,4 @@
-<widget id="ch.eaglegames.moreorless" version="1.0.0" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="ch.eaglegames.moreorless" version="1.0.0" xmlns:gap="http://phonegap.com/ns/1.0">
 
     <name>More or Less</name>
 
