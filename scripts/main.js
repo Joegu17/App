@@ -418,8 +418,8 @@ function correct() {
 }
 
 function moveCountry() {
-    $('text1').fadeOut(500, function() {
-        $('text1').fadeIn(500);
+    $('#text1').fadeOut(500, function() {
+        $('#text1').fadeIn(500);
     });
     $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
