@@ -550,9 +550,19 @@ function getNewCountry() {
 }
 
 function reset() {
-    if (score > scorePopu) {
-        setScorePopu(score);
-        getScorePopu();
+    switch (cat) {
+        case 2:
+            if (score > scorePopu) {
+                setScorePopu(score);
+                getScorePopu();
+            }
+            break;
+        case 3:
+            if (score > scoreSize) {
+                setScoreSize(score);
+                getScoreSize();
+            }
+            break;
     }
     
     $('#game').fadeOut(250, function() {
