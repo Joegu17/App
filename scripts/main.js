@@ -441,10 +441,7 @@ function moveCountry() {
         $('#text10').css({display: 'inherit'});
         $('#higher').css({display: 'inherit'});
         $('#lower').css({display: 'inherit'});
-        $('#text9').fadeIn(500);
-        $('#text10').fadeIn(500);
         $('#text7').css({display: 'none'});
-        $('#text7').fadeIn(500);
     });
     $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
