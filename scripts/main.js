@@ -2,7 +2,7 @@ var scorePopu;
 var scoreSize;
 var db;
 function initDB() {
-    db = window.openDatabase('Database', 2.0, 'AppGame', 2097152);
+    db = window.openDatabase('Database', 1.0, 'AppGame', 2097152);
     db.transaction(createTB, errorCB);
 }
 
