@@ -475,6 +475,12 @@ function getNewCountry() {
 }
 
 function reset() {
+    var elem1 = document.getElementById("div1");
+    elem1.parentNode.removeChild(elem1);
+    var elem2 = document.getElementById("div2");
+    elem2.parentNode.removeChild(elem2);
+    var elem3 = document.getElementById("div3");
+    elem3.parentNode.removeChild(elem3);
     $('#text9').css({display: 'inherit'});
     $('#text10').css({display: 'inherit'});
     $('#higher').css({display: 'inherit'});
@@ -508,12 +514,6 @@ function gameLoop(timestamp) {
                     window.setTimeout(moveCountry, 1000);
                 } else {
                     window.setTimeout(reset, 1000);
-                    var elem1 = document.getElementById("div1");
-                    elem1.parentNode.removeChild(elem1);
-                    var elem2 = document.getElementById("div2");
-                    elem2.parentNode.removeChild(elem2);
-                    var elem3 = document.getElementById("div3");
-                    elem3.parentNode.removeChild(elem3);
                 }
             } else {
                 $('#text7').html(Math.floor(countingPoints).toLocaleString());
