@@ -314,64 +314,9 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['zw', 'Zimbabwe', 16529904, 386850],
 ]
 
-var c1 = getRandomInt(0, data.length - 1),
-    c2 = getRandomInt(0, data.length - 1),
-    c3 = getRandomInt(0, data.length - 1);
-while (c2 == c1) {
-    c2 = getRandomInt(0, data.length - 1);
-}
-while (c3 == c2 || c3 == c1) {
-    c3 = getRandomInt(0, data.length - 1);
-}
-
-var div1 = document.createElement("div");
-div1.id = "div1"
-div1.style.position = "fixed";
-div1.style.width = "100%";
-div1.style.height = "50%";
-div1.style.top = "100%";
-div1.style.left = "0px";
-div1.style.backgroundImage = "url('images/4x3/"+data[c1][0]+".svg')";
-div1.style.backgroundPosition = "center";
-div1.style.backgroundSize = "cover";
-//div1.style["transition-duration"] = "1s";
-document.getElementById("background").appendChild(div1);
-
-var div2 = document.createElement("div");
-div2.id = "div2"
-div2.style.position = "fixed";
-div2.style.width = "100%";
-div2.style.height = "50%";
-div2.style.top = "100%";
-div2.style.left = "0px";
-div2.style.backgroundImage = "url('images/4x3/"+data[c2][0]+".svg')";
-div2.style.backgroundPosition = "center";
-div2.style.backgroundSize = "cover";
-//div2.style["transition-duration"] = "1s";
-document.getElementById("background").appendChild(div2);
-
-var div3 = document.createElement("div");
-div3.id = "div3"
-div3.style.position = "fixed";
-div3.style.width = "100%";
-div3.style.height = "50%";
-div3.style.top = "100%";
-div3.style.left = "0px";
-div3.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
-div3.style.backgroundPosition = "center";
-div3.style.backgroundSize = "cover";
-//div3.style["transition-duration"] = "1s";
-document.getElementById("background").appendChild(div3);
-
-$('#div1').css('transform', 'translate3d(0px, -200%, 0px)');
-$('#div2').css('transform', 'translate3d(0px, -100%, 0px)');
-$('#div1').css({'transition-duration': '1s'});
-$('#div2').css({'transition-duration': '1s'});
-$('#div3').css({'transition-duration': '1s'});
-
-$('#text1').html(data[c1][1]);
-$('#text3').html(data[c1][2].toLocaleString());
-$('#text5').html(data[c2][1]);
+var c1,
+    c2,
+    c3;
 
 var maxFPS = 60,
     fpsw = 0,
@@ -391,6 +336,69 @@ var countActive = false,
     transform2 = 2,
     transform3 = 3;
 
+function init() {
+    c1 = getRandomInt(0, data.length - 1);
+    c2 = getRandomInt(0, data.length - 1);
+    c3 = getRandomInt(0, data.length - 1);
+    while (c2 == c1) {
+        c2 = getRandomInt(0, data.length - 1);
+    }
+    while (c3 == c2 || c3 == c1) {
+        c3 = getRandomInt(0, data.length - 1);
+    }
+
+    var div1 = document.createElement("div");
+    div1.id = "div1"
+    div1.style.position = "fixed";
+    div1.style.width = "100%";
+    div1.style.height = "50%";
+    div1.style.top = "100%";
+    div1.style.left = "0px";
+    div1.style.backgroundImage = "url('images/4x3/"+data[c1][0]+".svg')";
+    div1.style.backgroundPosition = "center";
+    div1.style.backgroundSize = "cover";
+    document.getElementById("background").appendChild(div1);
+
+    var div2 = document.createElement("div");
+    div2.id = "div2"
+    div2.style.position = "fixed";
+    div2.style.width = "100%";
+    div2.style.height = "50%";
+    div2.style.top = "100%";
+    div2.style.left = "0px";
+    div2.style.backgroundImage = "url('images/4x3/"+data[c2][0]+".svg')";
+    div2.style.backgroundPosition = "center";
+    div2.style.backgroundSize = "cover";
+    document.getElementById("background").appendChild(div2);
+
+    var div3 = document.createElement("div");
+    div3.id = "div3"
+    div3.style.position = "fixed";
+    div3.style.width = "100%";
+    div3.style.height = "50%";
+    div3.style.top = "100%";
+    div3.style.left = "0px";
+    div3.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
+    div3.style.backgroundPosition = "center";
+    div3.style.backgroundSize = "cover";
+    document.getElementById("background").appendChild(div3);
+
+    $('#div1').css('transform', 'translate3d(0px, -200%, 0px)');
+    $('#div2').css('transform', 'translate3d(0px, -100%, 0px)');
+    $('#div1').css({'transition-duration': '1s'});
+    $('#div2').css({'transition-duration': '1s'});
+    $('#div3').css({'transition-duration': '1s'});
+
+    $('#text1').html(data[c1][1]);
+    $('#text3').html(data[c1][2].toLocaleString());
+    $('#text5').html(data[c2][1]);
+
+    changingDiv = 1;
+    transform1 = 1;
+    transform2 = 2;
+    transform3 = 3;
+}
+    
 var higher = document.getElementById('higher'),
     lower = document.getElementById('lower');
 
@@ -439,9 +447,6 @@ function correct() {
 }
 
 function moveCountry() {
-    /*$('#div1').css({'transition-duration': '1s'});
-    $('#div2').css({'transition-duration': '1s'});
-    $('#div3').css({'transition-duration': '1s'});*/
     $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
     $('#div3').css('transform', 'translate3d(0px, '+transform1*(-100)+'%, 0px)');
@@ -500,6 +505,17 @@ function getNewCountry() {
     $('#text7').css({display: 'none'});
 }
 
+function reset() {
+    $('#text9').css({display: 'none'});
+    $('#text10').css({display: 'none'});
+    $('#higher').css({display: 'none'});
+    $('#lower').css({display: 'none'});
+    $('#text7').css({display: 'inherit'});
+    
+    $('#game').css({display: 'none'});
+    $('#mainMenu').css({display: 'inherit'});
+}
+
 function gameLoop(timestamp) {
     
     if (timestamp < lastFrameTimeMs + (1000 / maxFPS)) {
@@ -522,7 +538,7 @@ function gameLoop(timestamp) {
                 if (answer) {
                     window.setTimeout(moveCountry, 1000);
                 } else {
-                    return;
+                    window.setTimeout(reset, 1000);
                 }
             } else {
                 $('#text7').html(Math.floor(countingPoints).toLocaleString());
