@@ -421,8 +421,6 @@ function correct() {
     countActive = true;
     
     
-    
-    window.setTimeout('', 2000)
 }
 
 function wrong() {
