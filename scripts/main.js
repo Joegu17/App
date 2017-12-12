@@ -329,12 +329,12 @@ div1.id = "div1"
 div1.style.position = "fixed";
 div1.style.width = "100%";
 div1.style.height = "50%";
-div1.style.top = "0px";
+div1.style.top = "100%";
 div1.style.left = "0px";
 div1.style.backgroundImage = "url('images/4x3/"+data[c1][0]+".svg')";
 div1.style.backgroundPosition = "center";
 div1.style.backgroundSize = "cover";
-div1.style["transition-duration"] = "1s";
+//div1.style["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div1);
 
 var div2 = document.createElement("div");
@@ -342,12 +342,12 @@ div2.id = "div2"
 div2.style.position = "fixed";
 div2.style.width = "100%";
 div2.style.height = "50%";
-div2.style.top = "50%";
+div2.style.top = "100%";
 div2.style.left = "0px";
 div2.style.backgroundImage = "url('images/4x3/"+data[c2][0]+".svg')";
 div2.style.backgroundPosition = "center";
 div2.style.backgroundSize = "cover";
-div2.style["transition-duration"] = "1s";
+//div2.style["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div2);
 
 var div3 = document.createElement("div");
@@ -360,8 +360,14 @@ div3.style.left = "0px";
 div3.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
 div3.style.backgroundPosition = "center";
 div3.style.backgroundSize = "cover";
-div3.style["transition-duration"] = "1s";
+//div3.style["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div3);
+
+$('#div1').css('transform', 'translate3d(0px, -200%, 0px)');
+$('#div2').css('transform', 'translate3d(0px, -100%, 0px)');
+$('#div1').css({'transition-duration': '1s'});
+$('#div2').css({'transition-duration': '1s'});
+$('#div3').css({'transition-duration': '1s'});
 
 $('#text1').html(data[c1][1]);
 $('#text3').html(data[c1][2].toLocaleString());
@@ -380,7 +386,10 @@ var countActive = false,
     countingPoints,
     answer = false,
     goingOn = false,
-    changingDiv = 1;
+    changingDiv = 1,
+    transform1 = 1,
+    transform2 = 2,
+    transform3 = 3;
 
 var higher = document.getElementById('higher'),
     lower = document.getElementById('lower');
@@ -433,9 +442,9 @@ function moveCountry() {
     /*$('#div1').css({'transition-duration': '1s'});
     $('#div2').css({'transition-duration': '1s'});
     $('#div3').css({'transition-duration': '1s'});*/
-    $('#div1').css('transform', 'translate3d(0px, -100%, 0px)');
-    $('#div2').css('transform', 'translate3d(0px, -100%, 0px)');
-    $('#div3').css('transform', 'translate3d(0px, -100%, 0px)');
+    $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
+    $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
+    $('#div3').css('transform', 'translate3d(0px, '+transform1*(-100)+'%, 0px)');
     window.setTimeout(getNewCountry, 1000);
 }
 
@@ -465,6 +474,18 @@ function getNewCountry() {
     changingDiv++;
     if (changingDiv == 4) {
         changingDiv = 1;
+    }
+    transform1++;
+    transform2++;
+    transform3++;
+    if (transform1 == 4) {
+        transform1 = 1;
+    }
+    if (transform2 == 4) {
+        transform2 = 1;
+    }
+    if (transform3 == 4) {
+        transform3 = 1;
     }
     
     $('#text1').html(data[c1][1]);
