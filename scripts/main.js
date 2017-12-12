@@ -437,21 +437,18 @@ function moveCountry() {
 }
 
 function getNewCountry() {
-    alert('hesdasafe');
     c1 = c2;
     c2 = c3;
     c3 = getRandomInt(0, data.length - 1);
     while (c3 == c2 || c3 == c1) {
         c3 = getRandomInt(0, data.length - 1);
     }
-    alert('heddwwdwdwwdfe');
     
-    var elem = document.getElementById("div"+changingDiv);
+    var elem = document.getElementById("div1");
     elem.parentNode.removeChild(elem);
-    alert('hefe');
     
     var div = document.createElement("div");
-    div.id = "div"+changingDiv;
+    div.id = "div1";
     div.style.position = "fixed";
     div.style.width = "100%";
     div.style.height = "50%";
