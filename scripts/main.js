@@ -22,16 +22,20 @@ function insertData() {
 function getScorePopu() {
     db.transaction(function(tx) {
         tx.executeSql('SELECT scorepopulation FROM Data WHERE id = ?', [0], function(tx, results) {
-            var score = results.rows.item(0);
-            scorePopu = score.scorepopulation;
+            var score1 = results.rows.item(0);
+            scorePopu = score1.scorepopulation;
+            alert(scorePopu);
+            $('#text14').html('Top Score: '+scorePopu);
         });
     });
 }
 function getScoreSize() {
     db.transaction(function(tx) {
         tx.executeSql('SELECT scoresize FROM Data WHERE id = ?', [0], function(tx, results) {
-            var score = results.rows.item(0);
-            scoreSize = score.scoresize;
+            var score1 = results.rows.item(0);
+            scoreSize = score1.scoresize;
+            alert(scoreSize);
+            $('#text14').html('Top Score: '+scoreSize);
         });
     });
 }
@@ -54,7 +58,6 @@ initDB();
 insertData();
 getScorePopu();
 getScoreSize();
-$('#text14').html('Top Score: '+scorePopu);
 
 //[Code, Name, Population, Size]
 var data = [                        //http://www.worldometers.info/world-population/population-by-country/
@@ -481,7 +484,7 @@ function getNewCountry() {
 function reset() {
     if (score > scorePopu) {
         setScorePopu(score);
-        setScorePopu();
+        getScorePopu();
     }
     var elem1 = document.getElementById("div1");
     elem1.parentNode.removeChild(elem1);
