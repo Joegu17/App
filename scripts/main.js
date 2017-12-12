@@ -508,11 +508,11 @@ function gameLoop(timestamp) {
                     window.setTimeout(moveCountry, 1000);
                 } else {
                     var elem1 = document.getElementById("div1");
-                    elem1.parentNode.removeChild(elem);
+                    elem1.parentNode.removeChild(elem1);
                     var elem2 = document.getElementById("div2");
-                    elem2.parentNode.removeChild(elem);
+                    elem2.parentNode.removeChild(elem2);
                     var elem3 = document.getElementById("div3");
-                    elem3.parentNode.removeChild(elem);
+                    elem3.parentNode.removeChild(elem3);
                     window.setTimeout(reset, 1000);
                 }
             } else {
