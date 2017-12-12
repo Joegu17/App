@@ -415,7 +415,7 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
-    plusPoints = data[c2][2]/1000;
+    plusPoints = data[c2][2]/120;
     countingPoints = 0;
     $('#text7').html(countingPoints.toLocaleString());
     countActive = true;
@@ -444,9 +444,9 @@ function gameLoop(timestamp) {
             if (countingPoints >= data[c2][2]) {
                 countActive = false;
                 countingPoints = data[c2][2];
-                $('#text7').html(countingPoints.toLocaleString());
+                $('#text7').html(Math.floor(countingPoints).toLocaleString());
             } else {
-                $('#text7').html(countingPoints.toLocaleString());
+                $('#text7').html(Math.floor(countingPoints).toLocaleString());
             }
         }
         delta -= timestep;
