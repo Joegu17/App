@@ -418,8 +418,23 @@ function correct() {
 }
 
 function moveCountry() {
+    c1 = c2;
+    c2 = c3;
+    c3 = getRandomInt(0, data.length - 1);
+    while (c3 == c2 || c3 == c1) {
+        c3 = getRandomInt(0, data.length - 1);
+    }
     $('#text1').fadeOut(500, function() {
+        $('#text1').html(data[c1][1]);
         $('#text1').fadeIn(500);
+    });
+    $('#text3').fadeOut(500, function() {
+        $('#text3').html(data[c1][2].toLocaleString());
+        $('#text3').fadeIn(500);
+    });
+    $('#text5').fadeOut(500, function() {
+        $('#text5').html(data[c2][1]);
+        $('#text5').fadeIn(500);
     });
     $('#div1').css('transform', 'translate3d(0px, '+transform3*(-100)+'%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, '+transform2*(-100)+'%, 0px)');
@@ -428,13 +443,6 @@ function moveCountry() {
 }
 
 function getNewCountry() {
-    c1 = c2;
-    c2 = c3;
-    c3 = getRandomInt(0, data.length - 1);
-    while (c3 == c2 || c3 == c1) {
-        c3 = getRandomInt(0, data.length - 1);
-    }
-    
     var elem = document.getElementById("div"+changingDiv);
     elem.parentNode.removeChild(elem);
     
@@ -471,9 +479,9 @@ function getNewCountry() {
     score++;
     $('#text13').html('Score: '+score);
     
-    $('#text1').html(data[c1][1]);
+    /*$('#text1').html(data[c1][1]);
     $('#text3').html(data[c1][2].toLocaleString());
-    $('#text5').html(data[c2][1]);
+    $('#text5').html(data[c2][1]);*/
     
     $('#text9').css({display: 'inherit'});
     $('#text10').css({display: 'inherit'});
