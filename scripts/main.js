@@ -15,7 +15,7 @@ function errorCB(err) {
 
 function insertData() {
     db.transaction(function(tx) {
-        tx.executeSql('INSERT INTO Data(id, scorepopulation, scoresize) values(?,?,?)', [0,0,0]) 
+        tx.executeSql('INSERT INTO Data(id, scorepopulation, scoresize) values(0,0,0)') 
     });
 }
 
@@ -240,7 +240,7 @@ var data = [                        //http://www.worldometers.info/world-populat
     ['ph', 'Philippines', 104918090, 298170],
     ['pk', 'Pakistan', 197015955, 770880],
     ['pl', 'Poland', 38170712, 306230],
-    ['pm', 'St. Pierre & Miquelon', 6320, 230],
+    ['pm', 'St. Pierre & Miquelon', 6320, 230],        //max width on 16:9
     //['pn', 'Pitcairn', , , , , ],
     ['pr', 'Puerto Rico', 3663131, 8870],
     //['ps', 'Palestine', , , , , ],
