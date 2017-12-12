@@ -336,8 +336,21 @@ var countActive = false,
     transform3 = 3,
     score;
 
+function start() {
+    $('#mainMenu').fadeIn(250, function() {
+        higher.addEventListener('touchstart', function(){$('#higher_pressed').css({display: 'inherit'});});
+        higher.addEventListener('touchend', higherEnd);
+        lower.addEventListener('touchstart', function(){$('#lower_pressed').css({display: 'inherit'});});
+        lower.addEventListener('touchend', lowerEnd);
+        play.addEventListener('touchstart', function(){$('#button1_pressed').css({display: 'inherit'});});
+        play.addEventListener('touchend', playEnd);
+        category.addEventListener('touchstart', function(){$('#button2_pressed').css({display: 'inherit'});});
+        category.addEventListener('touchend', categoryEnd);
+    });
+}
+
 function init() {
-    $('#mainMenu').fadeOut(500, function() {
+    $('#mainMenu').fadeOut(250, function() {
         c1 = getRandomInt(0, data.length - 1);
         c2 = getRandomInt(0, data.length - 1);
         c3 = getRandomInt(0, data.length - 1);
@@ -403,7 +416,7 @@ function init() {
 
         $('#mainMenu').css({display: 'none'});
         //$('#game').css({display: 'inherit'});
-        $('#game').fadeIn(500);
+        $('#game').fadeIn(250);
     });
 }
 
@@ -507,7 +520,7 @@ function reset() {
         getScorePopu();
     }
     
-    $('#game').fadeOut(500, function() {
+    $('#game').fadeOut(250, function() {
         var elem1 = document.getElementById("div1");
         elem1.parentNode.removeChild(elem1);
         var elem2 = document.getElementById("div2");
@@ -522,7 +535,7 @@ function reset() {
         $('#text14').html('Top Score: '+scorePopu);
         $('#game').css({display: 'none'});
         //$('#mainMenu').css({display: 'inherit'});
-        $('#mainMenu').fadeIn(500);
+        $('#mainMenu').fadeIn(250);
     });
 }
 
@@ -573,15 +586,6 @@ var higher = document.getElementById('higher'),
     lower = document.getElementById('lower'),
     play = document.getElementById('button1'),
     category = document.getElementById('button2');
-
-higher.addEventListener('touchstart', function(){$('#higher_pressed').css({display: 'inherit'});});
-higher.addEventListener('touchend', higherEnd);
-lower.addEventListener('touchstart', function(){$('#lower_pressed').css({display: 'inherit'});});
-lower.addEventListener('touchend', lowerEnd);
-play.addEventListener('touchstart', function(){$('#button1_pressed').css({display: 'inherit'});});
-play.addEventListener('touchend', playEnd);
-category.addEventListener('touchstart', function(){$('#button2_pressed').css({display: 'inherit'});});
-category.addEventListener('touchend', categoryEnd);
 
 function higherEnd(e) {
     $('#higher_pressed').css({display: 'none'});
