@@ -469,6 +469,7 @@ function getNewCountry() {
     div.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
     div.style.backgroundPosition = "center";
     div.style.backgroundSize = "cover";
+    div.style["transition-duration"] = "1s";
     document.getElementById("background").appendChild(div);
     
     changingDiv++;
