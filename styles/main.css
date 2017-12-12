@@ -200,6 +200,11 @@
     top: 56%;
     width: 100%;
 }
+#text14 {
+    position: fixed;
+    top: 1%;
+    left: 1vh;
+}
 
 
 .font1 {

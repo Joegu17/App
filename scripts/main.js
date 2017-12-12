@@ -23,7 +23,7 @@ function getScorePopu() {
     db.transaction(function(tx) {
         tx.executeSql('SELECT scorepopulation FROM Data WHERE id = ?', [0], function(tx, results) {
             var score = results.rows.item(0);
-            alert(score.scorepopulation);
+            scorePopu = score.scorepopulation;
         });
     });
 }
@@ -31,18 +31,18 @@ function getScoreSize() {
     db.transaction(function(tx) {
         tx.executeSql('SELECT scoresize FROM Data WHERE id = ?', [0], function(tx, results) {
             var score = results.rows.item(0);
-            alert(score.scoresize);
+            scoreSize = score.scoresize;
         });
     });
 }
-function setScorePopu(scorePopu) {
+function setScorePopu(scorePopulation) {
     db.transaction(function(tx) {
-        tx.executeSql('UPDATE Data SET scorepopulation = '+scorePopu+' WHERE id = 0');
+        tx.executeSql('UPDATE Data SET scorepopulation = '+scorePopulation+' WHERE id = 0');
     });
 }
-function setScoreSize(scoreSize) {
+function setScoreSize(scoreSizes) {
     db.transaction(function(tx) {
-        tx.executeSql('UPDATE Data SET scoresize = '+scoreSize+' WHERE id = 0');
+        tx.executeSql('UPDATE Data SET scoresize = '+scoreSizes+' WHERE id = 0');
     });
 }
 
@@ -52,10 +52,9 @@ function handleError(err) {
 
 initDB();
 insertData();
-setScorePopu(4);
-setScoreSize(5);
 getScorePopu();
 getScoreSize();
+$('#text14').html('Top Score: '+scorePopu);
 
 //[Code, Name, Population, Size]
 var data = [                        //http://www.worldometers.info/world-population/population-by-country/
@@ -480,6 +479,10 @@ function getNewCountry() {
 }
 
 function reset() {
+    if (score > scorePopu) {
+        setScorePopu(score);
+        setScorePopu();
+    }
     var elem1 = document.getElementById("div1");
     elem1.parentNode.removeChild(elem1);
     var elem2 = document.getElementById("div2");
@@ -491,6 +494,7 @@ function reset() {
     $('#higher').css({display: 'inherit'});
     $('#lower').css({display: 'inherit'});
     $('#text7').css({display: 'none'});
+    $('#text14').html('Top Score: '+scorePopu);
     
     $('#game').css({display: 'none'});
     $('#mainMenu').css({display: 'inherit'});
