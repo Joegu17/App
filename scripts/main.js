@@ -364,6 +364,18 @@ $('#text1').html(data[c1][1]);
 $('#text3').html(data[c1][2].toLocaleString());
 $('#text5').html(data[c2][1]);
 
+var maxFPS = 60,
+    fpsw = 0,
+    lastFrameTimeMs = 0,
+    delta = 0,
+    timestep = 1000/60,
+    framesThisSecond = 0,
+    lastFpsUpdate = 0;
+
+var countActive = false,
+    plusPoints,
+    countingPoints;
+
 var higher = document.getElementById('higher'),
     lower = document.getElementById('lower');
 
@@ -401,12 +413,51 @@ function correct() {
     $('#text10').css({display: 'none'});
     $('#higher').css({display: 'none'});
     $('#lower').css({display: 'none'});
-    $('#text7').html(data[c2][2].toLocaleString());
     $('#text7').css({display: 'inherit'});
+    
+    plusPoints = data[c2][2]/60;
+    countingPoints = 0;
+    $('#text7').html(countingPoints.toLocaleString());
+    countActive = true;
+    
+    
+    
+    window.setTimeout('', 2000)
 }
 
 function wrong() {
     
+}
+
+function gameLoop(timestamp) {
+    
+    if (timestamp < lastFrameTimeMs + (1000 / maxFPS)) {
+        requestAnimationFrame(gameLoop);
+        return;
+    }
+    
+    delta += timestamp - lastFrameTimeMs;
+    lastFrameTimeMs = timestamp;
+    
+    var numUpdatesSteps = 0;
+    while (delta >= timestep) {
+        if (countActive) {
+            countingPoints += plusPoints;
+            if (countingPoints >= data[c2][2]) {
+                countActive = false;
+                countingPoints = data[c2][2];
+                $('#text7').html(countingPoints.toLocaleString());
+            } else {
+                $('#text7').html(countingPoints.toLocaleString());
+            }
+        }
+        delta -= timestep;
+        if (++numUpdatesSteps >= 240) {
+            panic();
+            break;
+        }
+    }
+    window.requestAnimationFrame(gameLoop);
 }
 
 
