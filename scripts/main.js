@@ -334,6 +334,7 @@ div1.style.left = "0px";
 div1.style.backgroundImage = "url('images/4x3/"+data[c1][0]+".svg')";
 div1.style.backgroundPosition = "center";
 div1.style.backgroundSize = "cover";
+div1.style.["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div1);
 
 var div2 = document.createElement("div");
@@ -346,6 +347,7 @@ div2.style.left = "0px";
 div2.style.backgroundImage = "url('images/4x3/"+data[c2][0]+".svg')";
 div2.style.backgroundPosition = "center";
 div2.style.backgroundSize = "cover";
+div2.style.["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div2);
 
 var div3 = document.createElement("div");
@@ -358,6 +360,7 @@ div3.style.left = "0px";
 div3.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
 div3.style.backgroundPosition = "center";
 div3.style.backgroundSize = "cover";
+div3.style.["transition-duration"] = "1s";
 document.getElementById("background").appendChild(div3);
 
 $('#text1').html(data[c1][1]);
@@ -427,10 +430,10 @@ function correct() {
 }
 
 function moveCountry() {
-    //$('#div1').css({'transition-duration': '1s'});
+    /*$('#div1').css({'transition-duration': '1s'});
     $('#div2').css({'transition-duration': '1s'});
-    $('#div3').css({'transition-duration': '1s'});
-    //$('#div1').css('transform', 'translate3d(0px, -100%, 0px)');
+    $('#div3').css({'transition-duration': '1s'});*/
+    $('#div1').css('transform', 'translate3d(0px, -100%, 0px)');
     $('#div2').css('transform', 'translate3d(0px, -100%, 0px)');
     $('#div3').css('transform', 'translate3d(0px, -100%, 0px)');
     window.setTimeout(getNewCountry, 1000);
@@ -444,11 +447,11 @@ function getNewCountry() {
         c3 = getRandomInt(0, data.length - 1);
     }
     
-    //var elem = document.getElementById("div1");
-    //elem.parentNode.removeChild(elem);
+    var elem = document.getElementById("div"+changingDiv);
+    elem.parentNode.removeChild(elem);
     
-    /*var div = document.createElement("div");
-    div.id = "div1";
+    var div = document.createElement("div");
+    div.id = "div"+changingDiv;
     div.style.position = "fixed";
     div.style.width = "100%";
     div.style.height = "50%";
@@ -457,7 +460,7 @@ function getNewCountry() {
     div.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
     div.style.backgroundPosition = "center";
     div.style.backgroundSize = "cover";
-    document.getElementById("background").appendChild(div);*/
+    document.getElementById("background").appendChild(div);
     
     changingDiv++;
     if (changingDiv == 4) {
