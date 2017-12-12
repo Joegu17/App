@@ -397,40 +397,9 @@ function init() {
     transform1 = 1;
     transform2 = 2;
     transform3 = 3;
-}
     
-var higher = document.getElementById('higher'),
-    lower = document.getElementById('lower');
-
-higher.addEventListener('touchstart', higherStart);
-higher.addEventListener('touchend', higherEnd);
-lower.addEventListener('touchstart', lowerStart);
-lower.addEventListener('touchend', lowerEnd);
-
-function higherStart() {
-    $('#higher_pressed').css({display: 'inherit'});
-}
-function higherEnd(e) {
-    $('#higher_pressed').css({display: 'none'});
-    if (data[c1][2] <= data[c2][2]) {
-        answer = true;
-    } else {
-        answer = false;
-    }
-    correct();
-}
-
-function lowerStart() {
-    $('#lower_pressed').css({display: 'inherit'});
-}
-function lowerEnd(e) {
-    $('#lower_pressed').css({display: 'none'});
-    if (data[c1][2] >= data[c2][2]) {
-        answer = true;
-    } else {
-        answer = false;
-    }
-    correct();
+    $('#mainMenu').css({display: 'none'});
+    $('#game').css({display: 'inherit'});
 }
 
 function correct() {
@@ -440,7 +409,7 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
-    plusPoints = data[c2][2]/120;
+    plusPoints = data[c2][2]/60;
     countingPoints = 0;
     $('#text7').html(countingPoints.toLocaleString());
     countActive = true;
@@ -557,6 +526,46 @@ function gameLoop(timestamp) {
 
 function panic() {
     delta = 0;
+}
+    
+var higher = document.getElementById('higher'),
+    lower = document.getElementById('lower'),
+    play = document.getElementById('button1'),
+    category = document.getElementById('button2');
+
+higher.addEventListener('touchstart', function(){$('#higher_pressed').css({display: 'inherit'});});
+higher.addEventListener('touchend', higherEnd);
+lower.addEventListener('touchstart', function(){$('#lower_pressed').css({display: 'inherit'});});
+lower.addEventListener('touchend', lowerEnd);
+play.addEventListener('touchstart', function(){$('#button1_pressed').css({display: 'inherit'});});
+play.addEventListener('touchend', playEnd);
+category.addEventListener('touchstart', function(){$('#button2_pressed').css({display: 'inherit'});});
+category.addEventListener('touchend', categoryEnd);
+
+function higherEnd(e) {
+    $('#higher_pressed').css({display: 'none'});
+    if (data[c1][2] <= data[c2][2]) {
+        answer = true;
+    } else {
+        answer = false;
+    }
+    correct();
+}
+function lowerEnd(e) {
+    $('#lower_pressed').css({display: 'none'});
+    if (data[c1][2] >= data[c2][2]) {
+        answer = true;
+    } else {
+        answer = false;
+    }
+    correct();
+}
+function playEnd(e) {
+    $('#button1_pressed').css({display: 'none'});
+    init();
+}
+function categoryEnd(e) {
+    $('#button2_pressed').css({display: 'none'});
 }
 
 window.requestAnimationFrame(gameLoop);

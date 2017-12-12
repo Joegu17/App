@@ -74,7 +74,6 @@
     background-size: contain;
     display: none;
 }
-
 #text1 {
     position: fixed;
     top: 6%;
@@ -126,6 +125,70 @@
     top: 80.75%;
     width: 100%;
 }
+
+/*------------------------------------------------------------------------------*/
+
+#mainMenu {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: beige;
+}
+#button1 {
+    position: fixed;
+    top: 30%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#button2 {
+    position: fixed;
+    top: 55%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#button1_pressed {
+    position: fixed;
+    top: 30%;
+    height: 15%;
+    width: 100%;
+    background-image: url(../images/button_pressed.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+#button2_pressed {
+    position: fixed;
+    top: 55%;
+    height: 15%;
+    width: 100%;
+    background-image: url(../images/button_pressed.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+#text11 {
+    position: fixed;
+    top: 31%;
+    width: 100%;
+}
+#text12 {
+    position: fixed;
+    top: 56%;
+    width: 100%;
+}
+
 
 .font1 {
     text-align: center;
