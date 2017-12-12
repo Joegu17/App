@@ -337,7 +337,7 @@ var countActive = false,
     score;
 
 function init() {
-    $('#mainMenu').fadeOut(500, function() {
+    $('#mainMenu').fadeOut(1000, function() {
         c1 = getRandomInt(0, data.length - 1);
         c2 = getRandomInt(0, data.length - 1);
         c3 = getRandomInt(0, data.length - 1);
@@ -403,6 +403,7 @@ function init() {
 
         $('#mainMenu').css({display: 'none'});
         $('#game').css({display: 'inherit'});
+        $('#game').fadeIn(1000);
     });
 }
 
@@ -506,7 +507,7 @@ function reset() {
         getScorePopu();
     }
     
-    $('#game').fadeOut(500, function() {
+    $('#game').fadeOut(1000, function() {
         var elem1 = document.getElementById("div1");
         elem1.parentNode.removeChild(elem1);
         var elem2 = document.getElementById("div2");
@@ -521,6 +522,7 @@ function reset() {
         $('#text14').html('Top Score: '+scorePopu);
         $('#game').css({display: 'none'});
         $('#mainMenu').css({display: 'inherit'});
+        $('#mainMenu').fadeIn(1000);
     });
 }
 
