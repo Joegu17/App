@@ -41,8 +41,8 @@
 }
 #higher {
     position: fixed;
-    top: 71.75%;
-    height: 6%;
+    top: 71.25%;
+    height: 7%;
     width: 100%;
     background-image: url(../images/button.svg);
     background-position: center;
@@ -52,7 +52,7 @@
 #lower {
     position: fixed;
     top: 79.75%;
-    height: 6%;
+    height: 7%;
     width: 100%;
     background-image: url(../images/button.svg);
     background-position: center;
@@ -61,8 +61,8 @@
 }
 #higher_pressed {
     position: fixed;
-    top: 71.75%;
-    height: 6%;
+    top: 71.25%;
+    height: 7%;
     width: 100%;
     background-image: url(../images/button_pressed.svg);
     background-position: center;
@@ -73,7 +73,7 @@
 #lower_pressed {
     position: fixed;
     top: 79.75%;
-    height: 6%;
+    height: 7%;
     width: 100%;
     background-image: url(../images/button_pressed.svg);
     background-position: center;
@@ -83,12 +83,12 @@
 }
 #text1 {
     position: fixed;
-    top: 6%;
+    top: 8%;
     width: 100%;
 }
 #text2 {
     position: fixed;
-    top: 14%;
+    top: 16%;
     width: 100%;
 }
 #text3 {
@@ -103,12 +103,12 @@
 }
 #text5 {
     position: fixed;
-    top: 56%;
+    top: 58%;
     width: 100%;
 }
 #text6 {
     position: fixed;
-    top: 64%;
+    top: 66%;
     width: 100%;
 }
 #text7 {
@@ -124,12 +124,12 @@
 }
 #text9 {
     position: fixed;
-    top: 72.5%;
+    top: 72.25%;
     width: 100%;
 }
 #text10 {
     position: fixed;
-    top: 80.75%;
+    top: 81%;
     width: 100%;
 }
 #text13 {
@@ -205,7 +205,7 @@
 .font1 {
     text-align: center;
     font-family: Helvetica;
-    font-size: 7vh;
+    font-size: 6vh;
     font-weight: bold;
     font-style: italic;
     color: white;
@@ -215,7 +215,7 @@
 .font2 {
     text-align: center;
     font-family: Helvetica;
-    font-size: 5vh;
+    font-size: 3vh;
     font-weight: bold;
     font-style: italic;
     color: white;
@@ -225,7 +225,7 @@
 .font3 {
     text-align: center;
     font-family: Helvetica;
-    font-size: 3.5vh;
+    font-size: 4vh;
     font-weight: bold;
     font-style: italic;
     color: white;

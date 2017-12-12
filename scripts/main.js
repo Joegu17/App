@@ -399,6 +399,7 @@ function init() {
     transform2 = 2;
     transform3 = 3;
     score = 0;
+    $('#text13').html('Score: '+score);
     
     $('#mainMenu').css({display: 'none'});
     $('#game').css({display: 'inherit'});
