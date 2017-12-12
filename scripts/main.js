@@ -447,7 +447,7 @@ function getNewCountry() {
     var elem = document.getElementById("div1");
     elem.parentNode.removeChild(elem);
     
-    var div = document.createElement("div");
+    /*var div = document.createElement("div");
     div.id = "div1";
     div.style.position = "fixed";
     div.style.width = "100%";
@@ -457,7 +457,7 @@ function getNewCountry() {
     div.style.backgroundImage = "url('images/4x3/"+data[c3][0]+".svg')";
     div.style.backgroundPosition = "center";
     div.style.backgroundSize = "cover";
-    document.getElementById("background").appendChild(div);
+    document.getElementById("background").appendChild(div);*/
     
     changingDiv++;
     if (changingDiv == 4) {
