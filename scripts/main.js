@@ -444,8 +444,8 @@ function getNewCountry() {
         c3 = getRandomInt(0, data.length - 1);
     }
     
-    var elem = document.getElementById("div1");
-    elem.parentNode.removeChild(elem);
+    //var elem = document.getElementById("div1");
+    //elem.parentNode.removeChild(elem);
     
     /*var div = document.createElement("div");
     div.id = "div1";
