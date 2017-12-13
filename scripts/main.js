@@ -579,7 +579,7 @@ function reset() {
         $('#lower').css({display: 'inherit'});
         $('#text7').css({display: 'none'});
         $('#game').css({display: 'none'});
-        $('#mainMenu').fadeIn(250);
+        //$('#mainMenu').fadeIn(250);
     });
 }
 

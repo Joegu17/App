@@ -16,7 +16,6 @@ function onAdLoadedEvent(e) {
 }
 
 function onDeviceReady() {
-    alert('dfeh');
     document.removeEventListener('deviceready', onDeviceReady, false);
 
     admob.setOptions({
@@ -43,5 +42,8 @@ function showInterstitialAd() {
             autoShowInterstitial: isAutoshowInterstitial
         });
     }
-    //$('#mainMenu').fadeIn(250);
 }
+
+document.addEventListener(admob.events.onResume, function(e) {
+    $('#mainMenu').fadeIn(250);
+});
