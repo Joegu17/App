@@ -44,7 +44,7 @@ function getScoreElev() {
     db.transaction(function(tx) {
         tx.executeSql('SELECT scoreelevation FROM Scores WHERE id = ?', [0], function(tx, results) {
             var score1 = results.rows.item(0);
-            scoreSize = score1.scoreelevation;
+            scoreElev = score1.scoreelevation;
             $('#text14').html('Top Score: '+scoreElev);
             $('#text17').html('Top Score: '+scoreElev);
         });
