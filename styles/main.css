@@ -18,7 +18,7 @@
 }
 
 body {
-    background-color: dimgrey;
+    background-color: skyblue;
 }
 
 
@@ -146,6 +146,10 @@ body {
     left: 0px;
     height: 100%;
     width: 100%;
+    background-image: url(../images/word2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     display: none;
 }
 #button1 {
@@ -214,6 +218,10 @@ body {
     left: 0px;
     height: 100%;
     width: 100%;
+    background-image: url(../images/word2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     display: none;
 }
 #button3 {

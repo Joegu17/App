@@ -479,7 +479,7 @@ function correct() {
     countActive = true;
     
     if (!answer) {  
-        window.setTimeout(showInterstitialAd, 500);
+        window.setTimeout(showInterstitialAd, 750);
     }
 }
 
