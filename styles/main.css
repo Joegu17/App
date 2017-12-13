@@ -21,6 +21,17 @@ body {
     background-color: skyblue;
 }
 
+#hintergrund {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/word2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
 
 #game {
     position: absolute;
@@ -146,10 +157,6 @@ body {
     left: 0px;
     height: 100%;
     width: 100%;
-    background-image: url(../images/word2.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
     display: none;
 }
 #button1 {
@@ -218,10 +225,6 @@ body {
     left: 0px;
     height: 100%;
     width: 100%;
-    background-image: url(../images/word2.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
     display: none;
 }
 #button3 {
