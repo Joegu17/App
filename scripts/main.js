@@ -523,8 +523,8 @@ function correct() {
     
     if (!answer) {
         totalPoints += score;
-        if (totalPoints >= 10) {  
-            totalPoints -= 10;
+        if (totalPoints >= 15) {  
+            totalPoints -= 15;
             window.setTimeout(showInterstitialAd, 800);
         }
     }
