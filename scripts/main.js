@@ -336,7 +336,8 @@ var countActive = false,
     transform1 = 1,
     transform2 = 2,
     transform3 = 3,
-    score;
+    score,
+    totalPoints;
 
 function start() {
     switch (cat) {
@@ -478,7 +479,9 @@ function correct() {
     }
     countActive = true;
     
-    if (!answer) {  
+    totalPoints += score;
+    if (!answer && totalPoints >= 10) {  
+        totalPoints -= 10;
         window.setTimeout(showInterstitialAd, 800);
     }
 }
