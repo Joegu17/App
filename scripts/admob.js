@@ -25,6 +25,7 @@ function onDeviceReady() {
 
     document.addEventListener(admob.events.onAdLoaded, onAdLoadedEvent);
     prepareIntestitialAd();
+    start();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -45,7 +46,7 @@ function showInterstitialAd() {
     }
 }
 
-document.addEventListener(admob.events.onAdClosed, function(e) {
+/*document.addEventListener(admob.events.onAdClosed, function(e) {
     alert('closed');
     $('#mainMenu').fadeIn(250);
 });
@@ -53,4 +54,4 @@ document.addEventListener(admob.events.onAdClosed, function(e) {
 document.addEventListener("resume", function(e) {
     alert('resume');
     $('#mainMenu').fadeIn(250);
-});
+});*/

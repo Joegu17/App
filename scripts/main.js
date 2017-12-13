@@ -466,6 +466,10 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
+    if (!answer) {  
+        showInterstitialAd();
+    }
+    
     plusPoints = data[c2][cat]/60;
     countingPoints = 0;
     switch (cat) {
@@ -550,7 +554,6 @@ function getNewCountry() {
 }
 
 function reset() {
-    showInterstitialAd();
     switch (cat) {
         case 2:
             if (score > scorePopu) {
@@ -579,7 +582,7 @@ function reset() {
         $('#lower').css({display: 'inherit'});
         $('#text7').css({display: 'none'});
         $('#game').css({display: 'none'});
-        //$('#mainMenu').fadeIn(250);
+        $('#mainMenu').fadeIn(250);
     });
 }
 
