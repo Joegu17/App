@@ -480,6 +480,7 @@ function correct() {
     countActive = true;
     
     totalPoints += score;
+    alert(totalPoints + '  ' + score);
     if (!answer && totalPoints >= 10) {  
         totalPoints -= 10;
         window.setTimeout(showInterstitialAd, 800);
