@@ -370,19 +370,19 @@ function start() {
     }
     $('#mainMenu').fadeIn(250, function() {
         higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        higher.addEventListener('touchend', function(){if(!alreadyTouching){higherEnd();}});
+        higher.addEventListener('touchend', higherEnd);
         lower.addEventListener('touchstart', function(){if(!alreadyTouching){$('#lower_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        lower.addEventListener('touchend', function(){if(!alreadyTouching){lowerEnd();}});
+        lower.addEventListener('touchend', lowerEnd);
         play.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button1_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        play.addEventListener('touchend', function(){if(!alreadyTouching){playEnd();}});
+        play.addEventListener('touchend', playEnd);
         category.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button2_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        category.addEventListener('touchend', function(){if(!alreadyTouching){categoryEnd();}});
+        category.addEventListener('touchend', categoryEnd);
         population.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button3_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        population.addEventListener('touchend', function(){if(!alreadyTouching){populationEnd();}});
+        population.addEventListener('touchend', populationEnd);
         area.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button4_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        area.addEventListener('touchend', function(){if(!alreadyTouching){areaEnd();}});
+        area.addEventListener('touchend', areaEnd);
         elevation.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button5_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        elevation.addEventListener('touchend', function(){if(!alreadyTouching){elevationEnd();}});
+        elevation.addEventListener('touchend', elevationEnd);
     });
 }
 
