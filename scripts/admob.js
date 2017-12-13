@@ -35,6 +35,7 @@ function showInterstitialAd() {
                 isPendingInterstitial = false;
                 isAutoshowInterstitial = false;
                 prepareInterstitialAd();
+                alert('lol');
         });
     } else {
         isAutoshowInterstitial = true;
