@@ -44,6 +44,6 @@ function showInterstitialAd() {
     }
 }
 
-document.addEventListener(admob.events.onResume, function(e) {
+document.addEventListener(admob.events.onAdClosed, function(e) {
     $('#mainMenu').fadeIn(250);
 });
