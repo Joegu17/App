@@ -9,6 +9,7 @@ function initDB() {
 
 function createTB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS Scores(id, scorepopulation, scoresize, scoreelevation)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS Cat(id, category)');
 }
 function errorCB(err) {
     alert(err);
@@ -16,7 +17,8 @@ function errorCB(err) {
 
 function insertData() {
     db.transaction(function(tx) {
-        tx.executeSql('INSERT INTO Scores(id, scorepopulation, scoresize, scoreelevation) values(0,0,0,0)') 
+        tx.executeSql('INSERT INTO Scores(id, scorepopulation, scoresize, scoreelevation) values(0,0,0,0)'); 
+        tx.executeSql('INSERT INTO Cat(id, category) values(0,2)'); 
     });
 }
 
@@ -50,6 +52,14 @@ function getScoreElev() {
         });
     });
 }
+function getCat() {
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT category FROM Cat WHERE id = ?', [0], function(tx, results) {
+            var cat1 = results.rows.item(0);
+            cat = cat1.category;
+        });
+    });
+}
 function setScorePopu(scorePopulation) {
     db.transaction(function(tx) {
         tx.executeSql('UPDATE Scores SET scorepopulation = '+scorePopulation+' WHERE id = 0');
@@ -63,6 +73,11 @@ function setScoreSize(scoreSizes) {
 function setScoreElev(scoreElevation) {
     db.transaction(function(tx) {
         tx.executeSql('UPDATE Scores SET scoreelevation = '+scoreElevation+' WHERE id = 0');
+    });
+}
+function setCat(cate) {
+    db.transaction(function(tx) {
+        tx.executeSql('UPDATE Cat SET category = '+cate+' WHERE id = 0');
     });
 }
 
@@ -369,6 +384,7 @@ function start() {
             getScoreElev();
             break;
     }
+    getCat();
     $('#mainMenu').fadeIn(250, function() {
         higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 0;}});
         higher.addEventListener('touchend', function(){if(touchStart == 0){higherEnd();}});
@@ -651,6 +667,7 @@ function toCategory() {
 }
 
 function toMenu() {
+    setCat(cat);
     $('#categoryMenu').fadeOut(250, function() {
         alreadyTouching = false;
         $('#button3_pressed').css({display: 'none'});
