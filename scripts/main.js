@@ -390,13 +390,7 @@ function start() {
 function init() {
     $('#mainMenu').fadeOut(250, function() {
         alreadyTouching = false;
-        $('#higher_pressed').css({display: 'none'});
-        $('#lower_pressed').css({display: 'none'});
         $('#button1_pressed').css({display: 'none'});
-        $('#button2_pressed').css({display: 'none'});
-        $('#button3_pressed').css({display: 'none'});
-        $('#button4_pressed').css({display: 'none'});
-        $('#button5_pressed').css({display: 'none'});
         c1 = getRandomInt(0, data.length - 1);
         c2 = getRandomInt(0, data.length - 1);
         c3 = getRandomInt(0, data.length - 1);
@@ -512,11 +506,6 @@ function correct() {
     alreadyTouching = false;
     $('#higher_pressed').css({display: 'none'});
     $('#lower_pressed').css({display: 'none'});
-    $('#button1_pressed').css({display: 'none'});
-    $('#button2_pressed').css({display: 'none'});
-    $('#button3_pressed').css({display: 'none'});
-    $('#button4_pressed').css({display: 'none'});
-    $('#button5_pressed').css({display: 'none'});
     plusPoints = data[c2][cat]/60;
     countingPoints = 0;
     switch (cat) {
@@ -656,13 +645,7 @@ function reset() {
 function toCategory() {
     $('#mainMenu').fadeOut(250, function() {
         alreadyTouching = false;
-        $('#higher_pressed').css({display: 'none'});
-        $('#lower_pressed').css({display: 'none'});
-        $('#button1_pressed').css({display: 'none'});
         $('#button2_pressed').css({display: 'none'});
-        $('#button3_pressed').css({display: 'none'});
-        $('#button4_pressed').css({display: 'none'});
-        $('#button5_pressed').css({display: 'none'});
         $('#categoryMenu').fadeIn(250);
     });
 }
@@ -670,10 +653,6 @@ function toCategory() {
 function toMenu() {
     $('#categoryMenu').fadeOut(250, function() {
         alreadyTouching = false;
-        $('#higher_pressed').css({display: 'none'});
-        $('#lower_pressed').css({display: 'none'});
-        $('#button1_pressed').css({display: 'none'});
-        $('#button2_pressed').css({display: 'none'});
         $('#button3_pressed').css({display: 'none'});
         $('#button4_pressed').css({display: 'none'});
         $('#button5_pressed').css({display: 'none'});
