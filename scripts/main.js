@@ -390,6 +390,13 @@ function start() {
 function init() {
     $('#mainMenu').fadeOut(250, function() {
         alreadyTouching = false;
+        $('#higher_pressed').css({display: 'none'});
+        $('#lower_pressed').css({display: 'none'});
+        $('#button1_pressed').css({display: 'none'});
+        $('#button2_pressed').css({display: 'none'});
+        $('#button3_pressed').css({display: 'none'});
+        $('#button4_pressed').css({display: 'none'});
+        $('#button5_pressed').css({display: 'none'});
         c1 = getRandomInt(0, data.length - 1);
         c2 = getRandomInt(0, data.length - 1);
         c3 = getRandomInt(0, data.length - 1);
@@ -503,6 +510,13 @@ function correct() {
     $('#text7').css({display: 'inherit'});
     
     alreadyTouching = false;
+    $('#higher_pressed').css({display: 'none'});
+    $('#lower_pressed').css({display: 'none'});
+    $('#button1_pressed').css({display: 'none'});
+    $('#button2_pressed').css({display: 'none'});
+    $('#button3_pressed').css({display: 'none'});
+    $('#button4_pressed').css({display: 'none'});
+    $('#button5_pressed').css({display: 'none'});
     plusPoints = data[c2][cat]/60;
     countingPoints = 0;
     switch (cat) {
@@ -642,6 +656,13 @@ function reset() {
 function toCategory() {
     $('#mainMenu').fadeOut(250, function() {
         alreadyTouching = false;
+        $('#higher_pressed').css({display: 'none'});
+        $('#lower_pressed').css({display: 'none'});
+        $('#button1_pressed').css({display: 'none'});
+        $('#button2_pressed').css({display: 'none'});
+        $('#button3_pressed').css({display: 'none'});
+        $('#button4_pressed').css({display: 'none'});
+        $('#button5_pressed').css({display: 'none'});
         $('#categoryMenu').fadeIn(250);
     });
 }
@@ -649,6 +670,13 @@ function toCategory() {
 function toMenu() {
     $('#categoryMenu').fadeOut(250, function() {
         alreadyTouching = false;
+        $('#higher_pressed').css({display: 'none'});
+        $('#lower_pressed').css({display: 'none'});
+        $('#button1_pressed').css({display: 'none'});
+        $('#button2_pressed').css({display: 'none'});
+        $('#button3_pressed').css({display: 'none'});
+        $('#button4_pressed').css({display: 'none'});
+        $('#button5_pressed').css({display: 'none'});
         switch (cat) {
             case 2:
                 getScorePopu();
@@ -736,7 +764,7 @@ var higher = document.getElementById('higher'),
     elevation = document.getElementById('button5');
 
 function higherEnd(e) {
-    $('#higher_pressed').css({display: 'none'});
+    //$('#higher_pressed').css({display: 'none'});
     if (data[c1][cat] <= data[c2][cat]) {
         answer = true;
     } else {
@@ -745,7 +773,7 @@ function higherEnd(e) {
     correct();
 }
 function lowerEnd(e) {
-    $('#lower_pressed').css({display: 'none'});
+    //$('#lower_pressed').css({display: 'none'});
     if (data[c1][cat] >= data[c2][cat]) {
         answer = true;
     } else {
@@ -754,25 +782,25 @@ function lowerEnd(e) {
     correct();
 }
 function playEnd(e) {
-    $('#button1_pressed').css({display: 'none'});
+    //$('#button1_pressed').css({display: 'none'});
     init();
 }
 function categoryEnd(e) {
-    $('#button2_pressed').css({display: 'none'});
+    //$('#button2_pressed').css({display: 'none'});
     toCategory();
 }
 function populationEnd(e) {
-    $('#button3_pressed').css({display: 'none'});
+    //$('#button3_pressed').css({display: 'none'});
     cat = 2;
     toMenu();
 }
 function areaEnd(e) {
-    $('#button4_pressed').css({display: 'none'});
+    //$('#button4_pressed').css({display: 'none'});
     cat = 3;
     toMenu();
 }
 function elevationEnd(e) {
-    $('#button5_pressed').css({display: 'none'});
+    //$('#button5_pressed').css({display: 'none'});
     cat = 4;
     toMenu();
 }
