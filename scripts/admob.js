@@ -45,5 +45,11 @@ function showInterstitialAd() {
 }
 
 document.addEventListener(admob.events.onAdClosed, function(e) {
+    alert('closed');
+    $('#mainMenu').fadeIn(250);
+});
+
+document.addEventListener("resume", function(e) {
+    alert('resume');
     $('#mainMenu').fadeIn(250);
 });
