@@ -353,7 +353,8 @@ var countActive = false,
     transform2 = 2,
     transform3 = 3,
     score,
-    totalPoints = 0;
+    totalPoints = 0,
+    alreadyTouching = false;
 
 function start() {
     switch (cat) {
@@ -368,25 +369,26 @@ function start() {
             break;
     }
     $('#mainMenu').fadeIn(250, function() {
-        higher.addEventListener('touchstart', function(){$('#higher_pressed').css({display: 'inherit'});});
-        higher.addEventListener('touchend', higherEnd);
-        lower.addEventListener('touchstart', function(){$('#lower_pressed').css({display: 'inherit'});});
-        lower.addEventListener('touchend', lowerEnd);
-        play.addEventListener('touchstart', function(){$('#button1_pressed').css({display: 'inherit'});});
-        play.addEventListener('touchend', playEnd);
-        category.addEventListener('touchstart', function(){$('#button2_pressed').css({display: 'inherit'});});
-        category.addEventListener('touchend', categoryEnd);
-        population.addEventListener('touchstart', function(){$('#button3_pressed').css({display: 'inherit'});});
-        population.addEventListener('touchend', populationEnd);
-        area.addEventListener('touchstart', function(){$('#button4_pressed').css({display: 'inherit'});});
-        area.addEventListener('touchend', areaEnd);
-        elevation.addEventListener('touchstart', function(){$('#button5_pressed').css({display: 'inherit'});});
-        elevation.addEventListener('touchend', elevationEnd);
+        higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;}});
+        higher.addEventListener('touchend', function(){if(!alreadyTouching){higherEnd();}});
+        lower.addEventListener('touchstart', function(){if(!alreadyTouching){$('#lower_pressed').css({display: 'inherit'});alreadyTouching = true;}});
+        lower.addEventListener('touchend', function(){if(!alreadyTouching){lowerEnd();}});
+        play.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button1_pressed').css({display: 'inherit'});alreadyTouching = true;}});
+        play.addEventListener('touchend', function(){if(!alreadyTouching){playEnd();}});
+        category.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button2_pressed').css({display: 'inherit'});alreadyTouching = true;}});
+        category.addEventListener('touchend', function(){if(!alreadyTouching){categoryEnd();}});
+        population.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button3_pressed').css({display: 'inherit'});alreadyTouching = true;}});
+        population.addEventListener('touchend', function(){if(!alreadyTouching){populationEnd();}});
+        area.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button4_pressed').css({display: 'inherit'});alreadyTouching = true;}});
+        area.addEventListener('touchend', function(){if(!alreadyTouching){areaEnd();}});
+        elevation.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button5_pressed').css({display: 'inherit'});alreadyTouching = true;}});
+        elevation.addEventListener('touchend', function(){if(!alreadyTouching){elevationEnd();}});
     });
 }
 
 function init() {
     $('#mainMenu').fadeOut(250, function() {
+        alreadyTouching = false;
         c1 = getRandomInt(0, data.length - 1);
         c2 = getRandomInt(0, data.length - 1);
         c3 = getRandomInt(0, data.length - 1);
@@ -499,6 +501,7 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
+    alreadyTouching = false;
     plusPoints = data[c2][cat]/60;
     countingPoints = 0;
     switch (cat) {
@@ -637,12 +640,14 @@ function reset() {
 
 function toCategory() {
     $('#mainMenu').fadeOut(250, function() {
+        alreadyTouching = false;
         $('#categoryMenu').fadeIn(250);
     });
 }
 
 function toMenu() {
     $('#categoryMenu').fadeOut(250, function() {
+        alreadyTouching = false;
         switch (cat) {
             case 2:
                 getScorePopu();
