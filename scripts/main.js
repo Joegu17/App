@@ -349,6 +349,7 @@ var c1,
     c3;
 
 var cat = 2;     //category: 2 = Population; 3 = Size; 4 = Elevation
+getCat();
 
 var maxFPS = 60,
     fpsw = 0,
@@ -373,7 +374,6 @@ var countActive = false,
     touchStart = 100;
 
 function start() {
-    getCat();
     switch (cat) {
         case 2:
             getScorePopu();
