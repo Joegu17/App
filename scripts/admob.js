@@ -26,7 +26,6 @@ function onDeviceReady() {
 
     document.addEventListener(admob.events.onAdLoaded, onAdLoadedEvent);
     prepareIntestitialAd();
-    start();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
