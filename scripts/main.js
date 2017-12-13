@@ -348,7 +348,7 @@ var c1,
     c2,
     c3;
 
-var cat = 2;     //category: 2 = Population; 3 = Size; 4 = Elevation
+var cat = 10;     //category: 2 = Population; 3 = Size; 4 = Elevation
 
 var maxFPS = 60,
     fpsw = 0,
