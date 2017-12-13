@@ -36,7 +36,6 @@ function showInterstitialAd() {
                 isPendingInterstitial = false;
                 isAutoshowInterstitial = false;
                 prepareInterstitialAd();
-                $('#mainMenu').fadeIn(250);
         });
     } else {
         isAutoshowInterstitial = true;
@@ -44,4 +43,5 @@ function showInterstitialAd() {
             autoShowInterstitial: isAutoshowInterstitial
         });
     }
+    $('#mainMenu').fadeIn(250);
 }
