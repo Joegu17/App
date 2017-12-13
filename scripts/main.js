@@ -57,6 +57,17 @@ function getCat() {
         tx.executeSql('SELECT category FROM Cat WHERE id = ?', [0], function(tx, results) {
             var cat1 = results.rows.item(0);
             cat = cat1.category;
+            switch (cat) {
+                case 2:
+                    getScorePopu();
+                    break;
+                case 3:
+                    getScoreSize();
+                    break;
+                case 4:
+                    getScoreElev();
+                    break;
+            }
         });
     });
 }
@@ -348,7 +359,7 @@ var c1,
     c2,
     c3;
 
-var cat = 10;     //category: 2 = Population; 3 = Size; 4 = Elevation
+var cat = 2;     //category: 2 = Population; 3 = Size; 4 = Elevation
 
 var maxFPS = 60,
     fpsw = 0,
@@ -374,18 +385,6 @@ var countActive = false,
 
 function start() {
     getCat();
-    alert(cat);
-    switch (cat) {
-        case 2:
-            getScorePopu();
-            break;
-        case 3:
-            getScoreSize();
-            break;
-        case 4:
-            getScoreElev();
-            break;
-    }
     $('#mainMenu').fadeIn(250, function() {
         higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 0;}});
         higher.addEventListener('touchend', function(){if(touchStart == 0){higherEnd();}});
