@@ -16,7 +16,7 @@ function errorCB(err) {
 
 function insertData() {
     db.transaction(function(tx) {
-        tx.executeSql('INSERT INTO Scores(id, scorepopulation, scoresize, scoreelevation) values(0,0,0)') 
+        tx.executeSql('INSERT INTO Scores(id, scorepopulation, scoresize, scoreelevation) values(0,0,0,0)') 
     });
 }
 
