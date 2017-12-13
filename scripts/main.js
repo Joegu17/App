@@ -337,7 +337,7 @@ var countActive = false,
     transform2 = 2,
     transform3 = 3,
     score,
-    totalPoints;
+    totalPoints = 0;
 
 function start() {
     switch (cat) {
