@@ -229,7 +229,7 @@ body {
 }
 #button3 {
     position: fixed;
-    top: 30%;
+    top: 25%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button.svg);
@@ -238,6 +238,16 @@ body {
     background-size: contain;
 }
 #button4 {
+    position: fixed;
+    top: 40%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#button5 {
     position: fixed;
     top: 55%;
     height: 10%;
@@ -249,7 +259,7 @@ body {
 }
 #button3_pressed {
     position: fixed;
-    top: 30%;
+    top: 25%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button_pressed.svg);
@@ -259,6 +269,17 @@ body {
     display: none;
 }
 #button4_pressed {
+    position: fixed;
+    top: 40%;
+    height: 10%;
+    width: 100%;
+    background-image: url(../images/button_pressed.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+#button5_pressed {
     position: fixed;
     top: 55%;
     height: 10%;
@@ -271,10 +292,15 @@ body {
 }
 #text15 {
     position: fixed;
-    top: 31%;
+    top: 26%;
     width: 100%;
 }
 #text16 {
+    position: fixed;
+    top: 41%;
+    width: 100%;
+}
+#text18 {
     position: fixed;
     top: 56%;
     width: 100%;
