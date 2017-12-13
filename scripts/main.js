@@ -354,7 +354,8 @@ var countActive = false,
     transform3 = 3,
     score,
     totalPoints = 0,
-    alreadyTouching = false;
+    alreadyTouching = false,
+    touchStart = 100;
 
 function start() {
     switch (cat) {
@@ -369,20 +370,20 @@ function start() {
             break;
     }
     $('#mainMenu').fadeIn(250, function() {
-        higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        higher.addEventListener('touchend', higherEnd);
-        lower.addEventListener('touchstart', function(){if(!alreadyTouching){$('#lower_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        lower.addEventListener('touchend', lowerEnd);
-        play.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button1_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        play.addEventListener('touchend', playEnd);
-        category.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button2_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        category.addEventListener('touchend', categoryEnd);
-        population.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button3_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        population.addEventListener('touchend', populationEnd);
-        area.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button4_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        area.addEventListener('touchend', areaEnd);
-        elevation.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button5_pressed').css({display: 'inherit'});alreadyTouching = true;}});
-        elevation.addEventListener('touchend', elevationEnd);
+        higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 0;}});
+        higher.addEventListener('touchend', function(){if(touchStart == 0){higherEnd();}});
+        lower.addEventListener('touchstart', function(){if(!alreadyTouching){$('#lower_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 1;}});
+        lower.addEventListener('touchend', function(){if(touchStart == 1){lowerEnd();}});
+        play.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button1_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 2;}});
+        play.addEventListener('touchend', function(){if(touchStart == 2){playEnd();}});
+        category.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button2_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 3;}});
+        category.addEventListener('touchend', function(){if(touchStart == 3){categoryEnd();}});
+        population.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button3_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 4;}});
+        population.addEventListener('touchend', function(){if(touchStart == 4){populationEnd();}});
+        area.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button4_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 5;}});
+        area.addEventListener('touchend', function(){if(touchStart == 5){areaEnd();}});
+        elevation.addEventListener('touchstart', function(){if(!alreadyTouching){$('#button5_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 6;}});
+        elevation.addEventListener('touchend', function(){if(touchStart == 6){elevationEnd();}});
     });
 }
 
