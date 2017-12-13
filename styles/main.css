@@ -170,7 +170,7 @@ body {
 }
 #button1 {
     position: fixed;
-    top: 30%;
+    top: 35%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button.svg);
@@ -190,7 +190,7 @@ body {
 }
 #button1_pressed {
     position: fixed;
-    top: 30%;
+    top: 35%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button_pressed.svg);
@@ -212,12 +212,12 @@ body {
 }
 #text11 {
     position: fixed;
-    top: 31%;
+    top: 36.5%;
     width: 100%;
 }
 #text12 {
     position: fixed;
-    top: 56%;
+    top: 56.5%;
     width: 100%;
 }
 #text14 {
@@ -238,7 +238,7 @@ body {
 }
 #button3 {
     position: fixed;
-    top: 25%;
+    top: 30%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button.svg);
@@ -248,7 +248,7 @@ body {
 }
 #button4 {
     position: fixed;
-    top: 40%;
+    top: 45%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button.svg);
@@ -258,7 +258,7 @@ body {
 }
 #button5 {
     position: fixed;
-    top: 55%;
+    top: 60%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button.svg);
@@ -268,7 +268,7 @@ body {
 }
 #button3_pressed {
     position: fixed;
-    top: 25%;
+    top: 30%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button_pressed.svg);
@@ -279,7 +279,7 @@ body {
 }
 #button4_pressed {
     position: fixed;
-    top: 40%;
+    top: 45%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button_pressed.svg);
@@ -290,7 +290,7 @@ body {
 }
 #button5_pressed {
     position: fixed;
-    top: 55%;
+    top: 60%;
     height: 10%;
     width: 100%;
     background-image: url(../images/button_pressed.svg);
@@ -301,17 +301,17 @@ body {
 }
 #text15 {
     position: fixed;
-    top: 26%;
+    top: 31.5%;
     width: 100%;
 }
 #text16 {
     position: fixed;
-    top: 41%;
+    top: 46.5%;
     width: 100%;
 }
 #text18 {
     position: fixed;
-    top: 56%;
+    top: 61.5%;
     width: 100%;
 }
 #text17 {
