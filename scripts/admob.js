@@ -16,6 +16,7 @@ function onAdLoadedEvent(e) {
 }
 
 function onDeviceReady() {
+    alert('dfeh');
     document.removeEventListener('deviceready', onDeviceReady, false);
 
     admob.setOptions({
@@ -25,6 +26,7 @@ function onDeviceReady() {
 
     document.addEventListener(admob.events.onAdLoaded, onAdLoadedEvent);
     prepareIntestitialAd();
+    start();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
