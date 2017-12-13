@@ -43,5 +43,5 @@ function showInterstitialAd() {
             autoShowInterstitial: isAutoshowInterstitial
         });
     }
-    $('#mainMenu').fadeIn(250);
+    //$('#mainMenu').fadeIn(250);
 }

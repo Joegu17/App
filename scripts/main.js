@@ -550,6 +550,7 @@ function getNewCountry() {
 }
 
 function reset() {
+    showInterstitialAd();
     switch (cat) {
         case 2:
             if (score > scorePopu) {
@@ -578,8 +579,7 @@ function reset() {
         $('#lower').css({display: 'inherit'});
         $('#text7').css({display: 'none'});
         $('#game').css({display: 'none'});
-        showInterstitialAd();
-        //$('#mainMenu').fadeIn(250);
+        $('#mainMenu').fadeIn(250);
     });
 }
 
