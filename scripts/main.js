@@ -579,7 +579,7 @@ function reset() {
         $('#text7').css({display: 'none'});
         $('#game').css({display: 'none'});
         showInterstitialAd();
-        $('#mainMenu').fadeIn(250);
+        //$('#mainMenu').fadeIn(250);
     });
 }
 
