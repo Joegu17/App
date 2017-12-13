@@ -8,7 +8,7 @@ function initDB() {
 }
 
 function createTB(tx) {
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Data(id, scorepopulation, scoresize, scoreelevation)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS Scores(id, scorepopulation, scoresize, scoreelevation)');
 }
 function errorCB(err) {
     alert(err);
@@ -16,13 +16,13 @@ function errorCB(err) {
 
 function insertData() {
     db.transaction(function(tx) {
-        tx.executeSql('INSERT INTO Data(id, scorepopulation, scoresize, scoreelevation) values(0,0,0)') 
+        tx.executeSql('INSERT INTO Scores(id, scorepopulation, scoresize, scoreelevation) values(0,0,0)') 
     });
 }
 
 function getScorePopu() {
     db.transaction(function(tx) {
-        tx.executeSql('SELECT scorepopulation FROM Data WHERE id = ?', [0], function(tx, results) {
+        tx.executeSql('SELECT scorepopulation FROM Scores WHERE id = ?', [0], function(tx, results) {
             var score1 = results.rows.item(0);
             scorePopu = score1.scorepopulation;
             $('#text14').html('Top Score: '+scorePopu);
@@ -32,7 +32,7 @@ function getScorePopu() {
 }
 function getScoreSize() {
     db.transaction(function(tx) {
-        tx.executeSql('SELECT scoresize FROM Data WHERE id = ?', [0], function(tx, results) {
+        tx.executeSql('SELECT scoresize FROM Scores WHERE id = ?', [0], function(tx, results) {
             var score1 = results.rows.item(0);
             scoreSize = score1.scoresize;
             $('#text14').html('Top Score: '+scoreSize);
@@ -42,7 +42,7 @@ function getScoreSize() {
 }
 function getScoreElev() {
     db.transaction(function(tx) {
-        tx.executeSql('SELECT scoreelevation FROM Data WHERE id = ?', [0], function(tx, results) {
+        tx.executeSql('SELECT scoreelevation FROM Scores WHERE id = ?', [0], function(tx, results) {
             var score1 = results.rows.item(0);
             scoreSize = score1.scoreelevation;
             $('#text14').html('Top Score: '+scoreElev);
@@ -52,17 +52,17 @@ function getScoreElev() {
 }
 function setScorePopu(scorePopulation) {
     db.transaction(function(tx) {
-        tx.executeSql('UPDATE Data SET scorepopulation = '+scorePopulation+' WHERE id = 0');
+        tx.executeSql('UPDATE Scores SET scorepopulation = '+scorePopulation+' WHERE id = 0');
     });
 }
 function setScoreSize(scoreSizes) {
     db.transaction(function(tx) {
-        tx.executeSql('UPDATE Data SET scoresize = '+scoreSizes+' WHERE id = 0');
+        tx.executeSql('UPDATE Scores SET scoresize = '+scoreSizes+' WHERE id = 0');
     });
 }
 function setScoreElev(scoreElevation) {
     db.transaction(function(tx) {
-        tx.executeSql('UPDATE Data SET scoreelevation = '+scoreElevation+' WHERE id = 0');
+        tx.executeSql('UPDATE Scores SET scoreelevation = '+scoreElevation+' WHERE id = 0');
     });
 }
 
