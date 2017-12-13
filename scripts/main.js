@@ -373,6 +373,7 @@ var countActive = false,
     touchStart = 100;
 
 function start() {
+    getCat();
     switch (cat) {
         case 2:
             getScorePopu();
@@ -384,7 +385,6 @@ function start() {
             getScoreElev();
             break;
     }
-    getCat();
     $('#mainMenu').fadeIn(250, function() {
         higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 0;}});
         higher.addEventListener('touchend', function(){if(touchStart == 0){higherEnd();}});
