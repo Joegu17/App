@@ -466,10 +466,6 @@ function correct() {
     $('#lower').css({display: 'none'});
     $('#text7').css({display: 'inherit'});
     
-    if (!answer) {  
-        showInterstitialAd();
-    }
-    
     plusPoints = data[c2][cat]/60;
     countingPoints = 0;
     switch (cat) {
@@ -481,6 +477,10 @@ function correct() {
             break;
     }
     countActive = true;
+    
+    if (!answer) {  
+        window.setTimeout(showInterstitialAd, 500);
+    }
 }
 
 function moveCountry() {
