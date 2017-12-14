@@ -558,7 +558,7 @@ function correct() {
         setAd(totalPoints);
         if (totalPoints >= 15) {  
             totalPoints -= 15;
-            window.setTimeout(showInterstitialAd, 800);
+            window.setTimeout(showInterstitialAd, 750);
         }
     }
 }
