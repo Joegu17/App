@@ -555,9 +555,9 @@ function correct() {
     
     if (!answer) {
         totalPoints += score;
+        setAd(totalPoints);
         if (totalPoints >= 15) {  
             totalPoints -= 15;
-            setAd(totalPoints);
             window.setTimeout(showInterstitialAd, 800);
         }
     }
