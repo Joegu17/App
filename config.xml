@@ -19,6 +19,6 @@
 
 	<gap:plugin name="phonegap-admob" source="npm"/>
     
-    <icon src="images/world2.svg" />
+    <icon src="images/icon/world2.png" />
 
 </widget>
