@@ -10,6 +10,7 @@ function initDB() {
 function createTB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS Scores(id, scorepopulation, scoresize, scoreelevation)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS Cat(id, category)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS Ad(id, number)');
 }
 function errorCB(err) {
     alert(err);
@@ -19,6 +20,7 @@ function insertData() {
     db.transaction(function(tx) {
         tx.executeSql('INSERT INTO Scores(id, scorepopulation, scoresize, scoreelevation) values(0,0,0,0)'); 
         tx.executeSql('INSERT INTO Cat(id, category) values(0,2)'); 
+        tx.executeSql('INSERT INTO Ad(id, number) values(0,0)'); 
     });
 }
 
@@ -71,6 +73,14 @@ function getCat() {
         });
     });
 }
+function getAd() {
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT number FROM Ad WHERE id = ?', [0], function(tx, results) {
+            var number = results.rows.item(0);
+            totalPoints = number.number;
+        });
+    });
+}
 function setScorePopu(scorePopulation) {
     db.transaction(function(tx) {
         tx.executeSql('UPDATE Scores SET scorepopulation = '+scorePopulation+' WHERE id = 0');
@@ -89,6 +99,11 @@ function setScoreElev(scoreElevation) {
 function setCat(cate) {
     db.transaction(function(tx) {
         tx.executeSql('UPDATE Cat SET category = '+cate+' WHERE id = 0');
+    });
+}
+function setAd(number) {
+    db.transaction(function(tx) {
+        tx.executeSql('UPDATE Ad SET number = '+number+' WHERE id = 0');
     });
 }
 
@@ -386,6 +401,7 @@ var countActive = false,
 function start() {
     getCat();
     $('#mainMenu').fadeIn(250, function() {
+        getAd();
         higher.addEventListener('touchstart', function(){if(!alreadyTouching){$('#higher_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 0;}});
         higher.addEventListener('touchend', function(){if(touchStart == 0){higherEnd();}});
         lower.addEventListener('touchstart', function(){if(!alreadyTouching){$('#lower_pressed').css({display: 'inherit'});alreadyTouching = true;touchStart = 1;}});
@@ -541,6 +557,7 @@ function correct() {
         totalPoints += score;
         if (totalPoints >= 15) {  
             totalPoints -= 15;
+            setAd(totalPoints);
             window.setTimeout(showInterstitialAd, 800);
         }
     }
