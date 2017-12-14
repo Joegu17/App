@@ -20,8 +20,8 @@ function onDeviceReady() {
     document.removeEventListener('deviceready', onDeviceReady, false);
 
     admob.setOptions({
-        publisherId:          "ca-app-pub-3940256099942544~3347511713",
-        interstitialAdId:     "ca-app-pub-3940256099942544/1033173712",
+        publisherId:          "ca-app-pub-5753772416827786~2763018113",
+        interstitialAdId:     "ca-app-pub-5753772416827786/4622894692",
     });
 
     document.addEventListener(admob.events.onAdLoaded, onAdLoadedEvent);
